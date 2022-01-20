@@ -1,0 +1,48 @@
+.container .jumbotron-fluid {
+  background-image: url(img/Image_Koki.png);
+  background-size: cover;
+  text-align: center;
+  border-radius: 36px;
+}
+
+.container p {
+  color: white;
+  font-size: 24px;
+}
+
+.container .display-4 {
+  color: white;
+  font-size: 64px;
+}
+
+.container .card {
+  border-radius: 36px;
+}
+
+.button1 .btn1 {
+  border-radius: 36px;
+  background-color: rgb(69, 98, 76);
+  color: white;
+}
+
+.button1:hover .btn1 {
+  background-color: rgb(27, 173, 124);
+}
+
+.button1:active .btn1 {
+  background-color: rgb(69, 98, 76);
+}
+
+.button2 .btn2 {
+  border-radius: 36px;
+  background-color: rgb(69, 98, 76);
+  color: white;
+}
+
+.button2:hover .btn2 {
+  background-color: rgb(27, 173, 124);
+}
+
+.button2:active .btn2 {
+  background-color: rgb(69, 98, 76);
+}
