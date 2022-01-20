@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
     <!-- custom css -->
-    <link rel="stylesheet" href="Koki.css">  
+    <link rel="stylesheet" href="koki.css">  
 
     <title>WARAS</title>
   </head>
@@ -25,14 +25,56 @@
             </div>
           </nav>
           <br><br><br><br><br>
+
+          <!-- Jumbotron -->
           <div class="container">
           <div class="jumbotron jumbotron-fluid">
             <div class="container">
-              <h1 class="display-4">Selamat Datang Di</h1>
-              <p class="lead">WARAS</p>
+              <p class="lead">Selamat Datang Di</p>
+              <h1 class="display-4">WARAS</h1>
             </div>
           </div>
         </div>
+        <br>
+        <!-- Jumbotron -->
+
+        <!-- Card -->
+        <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Stok Menu</h5>
+                <center><h3>100</h3></center>
+              </div>
+            </div>
+            <br><br>
+            <div class="button1">
+            <center><a href="#" class="btn1 btn-lg btn-block" style="text-decoration: none;">Lihat Stok Menu</a></center>
+              </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Pesanan</h5>
+                <center><h3>50</h3></center>
+              </div>
+            </div>
+            <br><br>
+            <div class="button2">
+            <center><a href="#" class="btn2 btn-lg btn-block" style="text-decoration: none;">Lihat Pesanan Pelanggan</a></center>
+          </div>
+          </div>
+        </div>
+      </div>
+      <br><br><br>
+        <!-- Card -->
+
+      <!-- Footer -->
+      <footer class="text-center text-dark mt-3 bt-2 pb-2"  style="background-color: white">
+          Copyright © 2022 Catalyze Team    
+      </footer> 
+      <!-- Footer -->
 
     <!-- Optional JavaScript; choose one of the two! -->
 
