@@ -46,3 +46,72 @@
 .button2:active .btn2 {
   background-color: rgb(69, 98, 76);
 }
+
+.main {
+  margin-left: 270px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+.konten {
+  position: absolute;
+
+  left: 20px;
+}
+
+.main .boxkasir1 {
+  width: 1240px;
+  height: 800px;
+  background: #e5e5e5;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+
+  position: absolute;
+  left: 270px;
+  top: 170px;
+
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 50px;
+  letter-spacing: -0.006em;
+
+  color: #000000;
+}
+
+.main .boxkasir1 label a {
+  position: absolute;
+  left: 1170px;
+  top: 15px;
+}
+
+.main .boxkasir1 label p {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+
+  font-family: Quicksand;
+  font-size: 24px;
+}
+
+.main .boxkasir1 p {
+  position: absolute;
+  top: 70px;
+  left: 895px;
+}
+
+.boxkasir1 .button1 .btn1 {
+  border-radius: 36px;
+  position: relative;
+  left: 1289px;
+  background-color: rgb(69, 98, 76);
+  color: white;
+}
+
+.boxkasir1 .button1:hover .btn1 {
+  background-color: rgb(153, 209, 106);
+}
+
+.boxkasir1 .button1:active .btn1 {
+  background-color: rgb(69, 98, 76);
+}
