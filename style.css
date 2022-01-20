@@ -396,3 +396,7 @@ footer {
     top: 80%;
   }
 }
+/* style dashboard admin */
+.nav-admin {
+  background-color: #3b5942;
+}
