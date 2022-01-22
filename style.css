@@ -374,11 +374,16 @@ footer {
 
 /* css untuk tampilan mobile */
 @media (max-width: 575.98px) {
+    .navbar {
+        z-index: 1;
+    }
+
+    /* css untuk landing page */
     .gambar-mobile {
         height: 914px;
         object-fit: cover;
     }
-    
+
     #landingpage .judul1 {
         top: 15%;
     }
@@ -394,6 +399,109 @@ footer {
 
     #landingpage .login {
         top: 80%;
+    }
+
+    /* css untuk login */
+    #login h1 {
+        left: 75px;
+    }
+
+    #login .username {
+        left: 75px;
+    }
+
+    #login .password {
+        left: 75px;
+    }
+
+    #login .login {
+        left: 75px;
+    }
+
+    #login .teks {
+        left: 75px;
+    }
+
+    #login .foto {
+        display: none;
+    }
+
+    /* css untuk about us */
+    #about-us img.aboutus1 {
+        width: 100%;
+        top: 175px;
+    }
+
+    #about-us h1.judul {
+        width: 100%;
+        left: 0;
+        top: 700px;
+    }
+    
+    #about-us p.keterangan {
+        width: 100%;
+        left: 0;
+        top: 900px;
+    }
+    
+    #about-us .container2 {
+        max-width: 100%;
+        height: 2200px;
+        top: 1250px;
+    }
+    
+    #about-us h2.judul2 {
+        width: 100%;
+        left: 0;
+        top: 30px;
+    }
+    
+    #about-us p.keterangan2 {
+        width: 100%;
+        left: 0;
+        top: 130px;
+    }
+    
+    #about-us img.aboutus2 {
+        width: 100%;
+        left: 0;
+        top: 450px;
+    }
+    
+    #about-us img.aboutus3 {
+        width: 100%;
+        left: 0px;
+        top: 1300px;
+    }
+    
+    #about-us h1.judul3 {
+        width: 100%;
+        left: 0;
+        top: 1000px;
+    }
+    
+    #about-us h2.judul4 {
+        width: 100%;
+        left: 0;
+        top: 1100px;
+    }
+    
+    #about-us img.aboutus4 {
+        max-width: 100%;
+        height: 250px;
+        left: 0;
+        top: 1850px;
+    }
+
+    footer {
+        max-width: 100%;
+        top: 3450px;
+    }
+    
+    .footer {
+        width: 100%;
+        height: 30px;
+        left: 65px;
     }
 
 }
