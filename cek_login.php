@@ -6,64 +6,59 @@ session_start();
 include 'koneksi.php';
  
 // menangkap data yang dikirim dari form login
-$id_pegawai = $_POST['id_pegawai'];
+$username = $_POST['username'];
 $pass = md5($_POST['pass']);
  
  
-// menyeleksi data user dengan id_pegawai dan password yang sesuai
-$login = mysqli_query($koneksi,"select * from pegawai where id_pegawai='$id_pegawai' and pass='$pass'");
+// menyeleksi data user dengan username dan password yang sesuai
+$login = mysqli_query($koneksi,"select * from jabatan,pengguna where pengguna.username='$username' and pengguna.pass='$pass' and pengguna.id_pengguna=jabatan.id_pengguna");
 // menghitung jumlah data yang ditemukan
 $cek = mysqli_num_rows($login);
  
-// cek apakah id_pegawai dan password di temukan pada database
+// cek apakah username dan password di temukan pada database
 if($cek > 0){
  
 	$data = mysqli_fetch_assoc($login);
  
 	// cek jika user login sebagai admin
-	if($data['jabatan']=="admin"){
+	if($data['nama_jabatan']=="admin"){
  
-		// buat session login dan id_pegawai
-		$_SESSION['id_pegawai'] = $id_pegawai;
-		$_SESSION['jabatan'] = "admin";
-		$_SESSION["nama_pegawai"] = $data["nama_pegawai"];
-		$_SESSION["jenis_kelamin"] = $data["jenis_kelamin"];
+		// buat session login dan username
+		$_SESSION['username'] = $username;
+		$_SESSION['nama_jabatan'] = "admin";
+		$_SESSION["nama_pengguna"] = $data["nama_pengguna"];
 		// alihkan ke halaman dashboard admin
-		header("location:admin.php");
+		header("location:dashboard_admin.php");
  
 	// cek jika user login sebagai pelayan
-	}else if($data['jabatan']=="pelayan"){
-		// buat session login dan id_pegawai
-		$_SESSION['id_pegawai'] = $id_pegawai;
-		$_SESSION['jabatan'] = "pelayan";
-		$_SESSION["nama_pegawai"] = $data["nama_pegawai"];
-		$_SESSION["dashboard_pelayan"] = $data["jenis_kelamin"];
-		// alihkan ke halaman dashboard pegawai
-		header("location:main_page.php");
+	}else if($data['nama_jabatan']=="pelayan"){
+		// buat session login dan username
+		$_SESSION['username'] = $username;
+		$_SESSION['nama_jabatan'] = "pelayan";
+		$_SESSION["nama_pengguna"] = $data["nama_pengguna"];
+		// alihkan ke halaman dashboard pengguna
+		header("location:dashboard_pelayan.php");
  
 	// cek jika user login sebagai koki
-	}else if($data['jabatan']=="koki"){
-		// buat session login dan id_pegawai
-		$_SESSION['id_pegawai'] = $id_pegawai;
-		$_SESSION['jabatan'] = "koki";
-		$_SESSION["nama_pegawai"] = $data["nama_pegawai"];
-		$_SESSION["jenis_kelamin"] = $data["jenis_kelamin"];
+	}else if($data['nama_jabatan']=="koki"){
+		// buat session login dan username
+		$_SESSION['username'] = $username;
+		$_SESSION['nama_jabatan'] = "koki";
+		$_SESSION["nama_pengguna"] = $data["nama_pengguna"];
 		// alihkan ke halaman dashboard koki
-		header("location:koki_dashboard.php");
+		header("location:dashboard_koki.php");
  
       // cek jika user login sebagai kasir
 	}
-	else if($data['jabatan']=="kasir"){
-		// buat session login dan id_pegawai
-		$_SESSION['id_pegawai'] = $id_pegawai;
-		$_SESSION['jabatan'] = "kasir";
-		$_SESSION["nama_pegawai"] = $data["nama_pegawai"];
-		$_SESSION["jenis_kelamin"] = $data["jenis_kelamin"];
+	else if($data['nama_jabatan']=="kasir"){
+		// buat session login dan username
+		$_SESSION['username'] = $username;
+		$_SESSION['nama_jabatan'] = "kasir";
+		$_SESSION["nama_pengguna"] = $data["nama_pengguna"];
 		// alihkan ke halaman dashboard kasir
-		header("location:kasir_dashboard.php");
+		header("location:dashboard_kasir.php");
  
 	}else{
- 
 		// alihkan ke halaman login kembali
 		header("location:login.php?pesan=gagal");
 	}	

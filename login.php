@@ -28,7 +28,7 @@
     <!-- navbar -->
 
     <!-- login -->
-    <form method="post" action="cek_login1.php">
+    <form method="post" action="cek_login.php">
     <section id="login">
         <div class="container">
             <div class="row">
