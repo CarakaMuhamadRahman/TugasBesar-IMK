@@ -28,13 +28,13 @@
     <!-- navbar -->
 
     <!-- login -->
-    <form method="post" action="cek_login.php">
+    <form method="post" action="cek_login1.php">
     <section id="login">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
                     <h1 class="judul">Masuk ke akun anda</h1>
-                    <input class="form-control username" type="text" name="id_pegawai" placeholder="Masukkan Username">
+                    <input class="form-control username" type="text" name="username" placeholder="Masukkan Username">
                     <input class="form-control password" type="password" name="pass" placeholder="Masukkan Password">
                     <div class="login">
                         <input class="btn btn-primary btn-lg" type="submit" value="Login" />
