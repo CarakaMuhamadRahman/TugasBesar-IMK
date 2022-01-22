@@ -115,3 +115,23 @@
 .boxkasir1 .button1:active .btn1 {
   background-color: rgb(69, 98, 76);
 }
+
+.btn {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/* Boostrap Buttons Styling */
+
+.button5 .btn8 {
+  border-radius: 36px;
+  background-color: rgb(69, 98, 76);
+  color: white;
+}
+
+.button5:hover .btn8 {
+  background-color: rgb(153, 209, 106);
+}
+
+.button5:active .btn8 {
+  background-color: rgb(69, 98, 76);
+}
