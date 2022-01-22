@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Pelayan</title>
+    <title>Stok Menu</title>
 
     <!-- Bootstrap CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
 
     <!-- custom css -->
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="koki.css"> 
 
 </head>
-<body>
+  <body>
+    
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid custom-navbar">
-          <a class="navbar-brand judul-logo" href="#">
-            <img src="/img/logo_waras.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+        <div class="container-fluid custom-navbar1">
+          <a class="navbar-brand judul-icon" href="#">
+            <img src="img/logoo 1.png" alt="" width="55" height="55">
             ꦮꦫꦱ
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,10 +28,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link active menu-1" aria-current="page" href="aboutus.html">about us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link menu-2" href="login.html">Login</a>
+                <a class="nav-link active menu-1" aria-current="page" href="#">Halo Mamank Racing</a>
               </li>
             </ul>
           </div>
@@ -38,12 +36,22 @@
     </nav>
     <!-- navbar -->
 
-      <!-- jumbotron -->
+    <!-- jumbotron -->
       <div id="jumbotron">
           <div class="col-sm-12">
-            <img src="/img/dashboard_pelayan.png" class="img-fluid dashboard-pelayan" alt="...">
-            <div class="judul1">Selamat Datang Di</div>
-            <div class="judul2">Waras</div>
+            <img src="./img/pageStokKoki.png" class="img-fluid dashboard-pelayan" alt="..." width="100%">
+              <div class="" style="posisition: relative">
+                <div class="mb-5" style="position: absolute; bottom: 0; left: 25%;">
+                  <button type="button" class="btn btn-dsh" style="width: 15rem">DASHBOARD</button>
+                  <button type="button" class="btn btn-stk" style="width: 15rem">STOCK MENU</button>
+                  <button type="button" class="btn btn-psn" style="width: 15rem">PESANAN</button>
+                </div>
+             </div>
+            <div class="judul-1">Selamat Datang Di</div>
+            <div class="login">
+        </div>
+            <div class="judul-2">Waras</div>
+            
           </div>
       </div>
       <!-- jumbotron -->
@@ -51,17 +59,16 @@
       <!-- tabel pemesanan -->
       <div class="container-fluid">
         <div class="col-sm-12">
-          <h5 class="judul3">Pemesanan</h5>
-          <button type="button" class="btn btn-primary btn-pesan">Pesan</button>
+          <h5 class="judul3">STOK MENU</h5>
           <table class="table table-bordered t-pemesanan">
             <thead>
-              <tr>
+              <tr class="text-center">
                 <th scope="col">No</th>
                 <th scope="col">Menu</th>
                 <th scope="col">Gambar</th>
                 <th scope="col">Harga</th>
                 <th scope="col">Stok</th>
-                <th scope="col">Jumlah</th>
+                <th scope="col">Ubah Stok</th>
               </tr>
             </thead>
             <tbody>
@@ -71,7 +78,7 @@
       </div>
       <!-- tabel pemesanan -->
 
-    <script src="/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+      <script src="./js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

@@ -1,375 +1,380 @@
 /* css untuk navbar */
 .container-fluid {
-    font-family: Roboto;
-    font-size: 25px;
-    line-height: 42px;
+  font-family: Roboto;
+  font-size: 25px;
+  line-height: 42px;
 }
 
 /* css untuk landing page */
 #landingpage .col-sm-12 {
-    position: relative;
-    text-align: center;
-    color: white;
+  position: relative;
+  text-align: center;
+  color: white;
 }
 
 #landingpage .judul1 {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: Roboto;
-    font-weight: 600;
-    font-size: 36px;
-    color: #3B5942;
-    text-transform: uppercase;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Roboto;
+  font-weight: 600;
+  font-size: 36px;
+  color: #3b5942;
+  text-transform: uppercase;
 }
 
 #landingpage .judul2 {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    right: -3%;
-    transform: translate(-50%, -50%);
-    font-family: Roboto;
-    font-weight: bold;
-    font-size: 64px;
-    line-height: 75px;
-    color: #3B5942;
-    text-transform: uppercase;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  right: -3%;
+  transform: translate(-50%, -50%);
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 64px;
+  line-height: 75px;
+  color: #3b5942;
+  text-transform: uppercase;
 }
 
 #landingpage .judul3 {
-    position: absolute;
-    top: 42%;
-    left: 50%;
-    right: -15%;
-    transform: translate(-50%, -50%);
-    font-family: Roboto;
-    font-size: 36px;
-    line-height: 42px;
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  right: -15%;
+  transform: translate(-50%, -50%);
+  font-family: Roboto;
+  font-size: 36px;
+  line-height: 42px;
 }
 
 #landingpage .login {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #landingpage .btn-primary {
-    width: 275px;
-    background-color: rgba(69, 98, 76, 0.67);
-    border-color: rgba(69, 98, 76, 0.67);
-    border-radius: 44px;
-    font-family: Roboto;
-    font-size: 25px;
-    line-height: 42px;
-    letter-spacing: 0.21em;
-    text-transform: uppercase;
+  width: 275px;
+  background-color: rgba(69, 98, 76, 0.67);
+  border-color: rgba(69, 98, 76, 0.67);
+  border-radius: 44px;
+  font-family: Roboto;
+  font-size: 25px;
+  line-height: 42px;
+  letter-spacing: 0.21em;
+  text-transform: uppercase;
 }
 
 #landingpage .btn-primary:hover {
-    background-color: rgba(69, 98, 76, 1);
-    border-color: rgba(69, 98, 76, 1);
+  background-color: rgba(69, 98, 76, 1);
+  border-color: rgba(69, 98, 76, 1);
 }
 
 /* css untuk login */
 #login h1 {
-    position: absolute;
-    left: 200px;
-    top: 175px;
-    font-family: Roboto;
-    font-size: 35px;
-    line-height: 41px;
+  position: absolute;
+  left: 200px;
+  top: 175px;
+  font-family: Roboto;
+  font-size: 35px;
+  line-height: 41px;
 }
 
 #login .username {
-    position: absolute;
-    width: 350px;
-    left: 200px;
-    top: 250px;
-    font-family: Roboto;
-    font-size: 20px;
-    line-height: 35px;
+  position: absolute;
+  width: 350px;
+  left: 200px;
+  top: 250px;
+  font-family: Roboto;
+  font-size: 20px;
+  line-height: 35px;
 }
 
 #login .password {
-    position: absolute;
-    width: 350px;
-    left: 200px;
-    top: 325px;
-    font-family: Roboto;
-    font-size: 20px;
-    line-height: 35px;
+  position: absolute;
+  width: 350px;
+  left: 200px;
+  top: 325px;
+  font-family: Roboto;
+  font-size: 20px;
+  line-height: 35px;
 }
 
 #login .login {
-    position: absolute;
-    left: 200px;
-    top: 400px;
+  position: absolute;
+  left: 200px;
+  top: 400px;
 }
 
 #login .btn-primary {
-    width: 350px;
-    background-color: rgba(59, 89, 66, 0.8);
-    border-color: rgba(69, 98, 76, 0.67);
-    border-radius: 90px;
-    font-family: Roboto;
-    font-size: 25px;
-    line-height: 42px;
-    letter-spacing: 0.165em;
-    text-transform: uppercase;
+  width: 350px;
+  background-color: rgba(59, 89, 66, 0.8);
+  border-color: rgba(69, 98, 76, 0.67);
+  border-radius: 90px;
+  font-family: Roboto;
+  font-size: 25px;
+  line-height: 42px;
+  letter-spacing: 0.165em;
+  text-transform: uppercase;
 }
 
 #login .btn-primary:hover {
-    background-color: rgba(69, 98, 76, 1);
-    border-color: rgba(69, 98, 76, 1);
+  background-color: rgba(69, 98, 76, 1);
+  border-color: rgba(69, 98, 76, 1);
 }
 
 #login .teks {
-    position: absolute;
-    left: 200px;
-    top: 475px;
-    font-family: Roboto;
-    font-style: italic;
-    font-size: 24px;
-    line-height: 28px;
-    color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  left: 200px;
+  top: 475px;
+  font-family: Roboto;
+  font-style: italic;
+  font-size: 24px;
+  line-height: 28px;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 #login .daftar {
-    font-family: Roboto;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 28px;
-    text-decoration-line: underline;
-    color: rgba(0, 0, 0, 0.7);
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  text-decoration-line: underline;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 #login .foto {
-    position: absolute;
-    width: 350px;
-    height: 500px;
-    left: 800px;
-    top: 75px;
-    border-radius: 1050px 1050px 0px 0px;
+  position: absolute;
+  width: 350px;
+  height: 500px;
+  left: 800px;
+  top: 75px;
+  border-radius: 1050px 1050px 0px 0px;
 }
 
 /* css untuk about us */
 #about-us img.aboutus1 {
-    position: absolute;
-    width: 475px;
-    height: 475px;
-    left: 0px;
-    top: 100px;
+  position: absolute;
+  width: 475px;
+  height: 475px;
+  left: 0px;
+  top: 100px;
 }
 
 #about-us h1.judul {
-    position: absolute;
-    width: 375px;
-    left: 525px;
-    top: 100px;
-    font-family: Roboto;
-    font-size: 50px;
-    line-height: 75px;
-    color: #45624C;
+  position: absolute;
+  width: 375px;
+  left: 525px;
+  top: 100px;
+  font-family: Roboto;
+  font-size: 50px;
+  line-height: 75px;
+  color: #45624c;
 }
 
 #about-us p.keterangan {
-    position: absolute;
-    width: 596px;
-    left: 525px;
-    top: 325px;
-    font-family: Roboto;
-    font-size: 24px;
-    line-height: 28px;
-    color: #45624C;
+  position: absolute;
+  width: 596px;
+  left: 525px;
+  top: 325px;
+  font-family: Roboto;
+  font-size: 24px;
+  line-height: 28px;
+  color: #45624c;
 }
 
 #about-us .container2 {
-    position: absolute;
-    max-width: 100%;
-    height: 1600px;
-    top: 675px;
-    background-color: #45624C;
+  position: absolute;
+  max-width: 100%;
+  height: 1600px;
+  top: 675px;
+  background-color: #45624c;
 }
 
 #about-us h2.judul2 {
-    position: absolute;
-    width: 656px;
-    height: 75px;
-    left: 79px;
-    top: 30px;
-    font-family: Roboto;
-    font-size: 45px;
-    line-height: 75px;
-    color: white;
+  position: absolute;
+  width: 656px;
+  height: 75px;
+  left: 79px;
+  top: 30px;
+  font-family: Roboto;
+  font-size: 45px;
+  line-height: 75px;
+  color: white;
 }
 
 #about-us p.keterangan2 {
-    position: absolute;
-    width: 596px;
-    height: 252px;
-    left: 82px;
-    top: 130px;
-    font-family: Roboto;
-    font-size: 24px;
-    line-height: 28px;
-    color: white;
+  position: absolute;
+  width: 596px;
+  height: 252px;
+  left: 82px;
+  top: 130px;
+  font-family: Roboto;
+  font-size: 24px;
+  line-height: 28px;
+  color: white;
 }
 
 #about-us img.aboutus2 {
-    position: absolute;
-    width: 475px;
-    height: 500px;
-    left: 872px;
-    border-radius: 284px 0px 0px 0px;
+  position: absolute;
+  width: 475px;
+  height: 500px;
+  left: 872px;
+  border-radius: 284px 0px 0px 0px;
 }
 
 #about-us img.aboutus3 {
-    position: absolute;
-    width: 475px;
-    height: 500px;
-    left: 0px;
-    top: 500px;
-    border-radius: 0px 284px 0px 0px;
+  position: absolute;
+  width: 475px;
+  height: 500px;
+  left: 0px;
+  top: 500px;
+  border-radius: 0px 284px 0px 0px;
 }
 
 #about-us h1.judul3 {
-    position: absolute;
-    width: 385px;
-    height: 75px;
-    left: 700px;
-    top: 675px;
-    font-family: Roboto;
-    font-size: 64px;
-    line-height: 75px;
-    color: white;
+  position: absolute;
+  width: 385px;
+  height: 75px;
+  left: 700px;
+  top: 675px;
+  font-family: Roboto;
+  font-size: 64px;
+  line-height: 75px;
+  color: white;
 }
 
 #about-us h2.judul4 {
-    position: absolute;
-    width: 504px;
-    height: 56px;
-    left: 640px;
-    top: 775px;
-    font-family: Roboto;
-    font-size: 48px;
-    line-height: 56px;
-    color: white;
+  position: absolute;
+  width: 504px;
+  height: 56px;
+  left: 640px;
+  top: 775px;
+  font-family: Roboto;
+  font-size: 48px;
+  line-height: 56px;
+  color: white;
 }
 
 #about-us img.aboutus4 {
-    position: absolute;
-    max-width: 100%;
-    height: 500px;
-    left: 0;
-    top: 1050px;
+  position: absolute;
+  max-width: 100%;
+  height: 500px;
+  left: 0;
+  top: 1050px;
 }
 
 footer {
-    position: absolute;
-    top: 2250px;
+  position: absolute;
+  top: 2250px;
 }
 
 .footer {
-    position: relative;
-    width: 350px;
-    height: 30px;
-    top: 10px;
-    left: 375px;
-    font-family: Roboto;
-    font-size: 24px;
-    line-height: 28px;
+  position: relative;
+  width: 350px;
+  height: 30px;
+  top: 10px;
+  left: 375px;
+  font-family: Roboto;
+  font-size: 24px;
+  line-height: 28px;
 }
 
 /* css untuk dashboard pelayan */
 .custom-navbar {
-    z-index: 99;
+  z-index: 99;
 }
 
 .judul-logo {
-    color: white !important;
+  color: white !important;
 }
 
 .menu-1 {
-    color: white !important;
+  color: white !important;
 }
 
 .menu-2 {
-    color: white !important;
+  color: white !important;
 }
 
 #jumbotron {
-    height: 300px;
-    margin-top: -75px;
-    z-index: 100;
+  height: 300px;
+  margin-top: -75px;
+  z-index: 100;
 }
 
 #jumbotron .col-sm-12 {
-    position: relative;
-    text-align: center;
-    color: white;
+  position: relative;
+  text-align: center;
+  color: white;
 }
 
 #jumbotron .judul1 {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: Roboto;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
-    color: white;
-    text-transform: uppercase;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Roboto;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28px;
+  color: white;
+  text-transform: uppercase;
 }
 
 #jumbotron .judul2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    right: -3%;
-    transform: translate(-50%, -50%);
-    font-family: Roboto;
-    font-weight: 600;
-    font-size: 64px;
-    line-height: 75px;
-    color: white;
-    text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: -3%;
+  transform: translate(-50%, -50%);
+  font-family: Roboto;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 75px;
+  color: white;
+  text-transform: uppercase;
 }
 
 .t-pemesanan {
-    position: absolute;
-    top: 904px;
+  position: absolute;
+  top: 904px;
 }
 
 .judul3 {
-    position: absolute;
-    top: 809px;
-    font-family: Roboto;
-    font-size: 36px;
-    line-height: 42px;
+  position: absolute;
+  top: 809px;
+  font-family: Roboto;
+  font-size: 36px;
+  line-height: 42px;
 }
 
 .btn-pesan {
-    position: absolute;
-    width: 100px;
-    height: 50px;
-    left: 1400px;
-    top: 809px;
-    background-color: #3B5942;
-    border-color: #3B5942;
-    border-radius: 31px;
-    font-family: Roboto;
-    font-size: 25px;
-    line-height: 40px;
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  left: 1400px;
+  top: 809px;
+  background-color: #3b5942;
+  border-color: #3b5942;
+  border-radius: 31px;
+  font-family: Roboto;
+  font-size: 25px;
+  line-height: 40px;
 }
 
 .btn-pesan:hover {
-    background-color: rgba(69, 98, 76, 1);
-    border-color: rgba(69, 98, 76, 1);
+  background-color: rgba(69, 98, 76, 1);
+  border-color: rgba(69, 98, 76, 1);
+}
+
+/* style dashboard admin */
+.nav-admin {
+  background-color: #3b5942;
 }
 
 /* css untuk tampilan mobile */
@@ -503,5 +508,4 @@ footer {
         height: 30px;
         left: 65px;
     }
-
 }
