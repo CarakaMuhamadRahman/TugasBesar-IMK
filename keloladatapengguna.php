@@ -1,3 +1,13 @@
+<?php 
+include_once("koneksi.php");
+
+	session_start();
+	// cek apakah yang mengakses halaman ini sudah login
+	if (!isset($_SESSION['nama_pengguna'])) {
+        header('location:login.php?pesan=gagal');
+    }
+	?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,6 +22,16 @@
     <link rel="stylesheet" href="style.css" />
 
     <title>Admin | Waras</title>
+    <?php
+    include_once("koneksi.php");
+
+    if (isset($_GET['cari'])) {
+        $cari = $_GET['cari'];
+        $result = mysqli_query($koneksi, "SELECT * FROM pengguna where nama_pengguna like'%" . $cari . "%'");
+    } else {
+        $result = mysqli_query($koneksi, "SELECT * FROM pengguna,jabatan where pengguna.id_pengguna=jabatan.id_pengguna ORDER BY nama_pengguna ASC");
+    }
+    ?>
   </head>
   <body>
     <nav class="navbar navbar-dark nav-admin">
@@ -26,7 +46,7 @@
           />
           ꦮꦫꦱ
         </a>
-        irfanginanjar
+        <div style="color: white;"><?php echo $_SESSION['nama_pengguna'] ?></div>
       </div>
     </nav>
     <div class="container">
@@ -41,9 +61,11 @@
             <table class="table table-bordered">
               <br />
               <div class="position-relative">
-                <button class="btn btn-success position-absolute top-0 start-0">
-                  Tambah Data
-                </button>
+                <a href="tambahadatapengguna.php">
+                  <button class="btn btn-success position-absolute top-0 start-0">
+                    Tambah Data
+                  </button>
+                </a>
                 <div class="input-group-sm position-absolute top-0 end-0">
                   <button
                     class="btn btn-success"
@@ -69,22 +91,33 @@
               <tr>
                 <th>NP</th>
                 <th>Nama</th>
-                <th>Jenis Kelamin</th>
                 <th>Jabatan</th>
+                <th>username</th>
                 <th>Password</th>
                 <th>Aksi</th>
               </tr>
+              <?php
+                    $no = 1;
+                    while ($user_data = mysqli_fetch_array($result)) {
+                    ?>
               <tr>
-                <td>oi</td>
-                <td>oi</td>
-                <td>oi</td>
-                <td>oi</td>
-                <td>oi</td>
-                <td>oi</td>
+                <td><?php echo $user_data['id_pengguna']; ?></td>
+                <td><?php echo $user_data['nama_pengguna']; ?></td>
+                <td><?php echo $user_data['nama_jabatan']; ?></td>
+                <td><?php echo $user_data['username']; ?></td>
+                <td><?php echo $user_data['pass']; ?></td>
+                <td>
+                            <center><a class='btn btn-success' href='admin_pegawai_edit.php?id_pegawai=<?= $user_data['id_pegawai']; ?>'>Edit</a> |
+                                <a class='btn btn-danger' href='admin_pegawai_hapus.php?id_pegawai=<?= $user_data['id_pegawai']; ?>' onclick="return confirm('anda yakin ingin menghapus data?')">Delete</a>
+                        </td>
               </tr>
+              <?php
+                    }
+                    ?>
             </table>
           </td>
         </tr>
+
       </table>
     </div>
     <script src="./js/bootstrap.bundle.min.js"></script>

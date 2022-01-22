@@ -41,9 +41,12 @@
             <table class="table table-bordered">
               <br />
               <div class="position-relative">
-                <button class="btn btn-success position-absolute top-0 start-0">
-                  Tambah Data
-                </button>
+                <a href="tambahdatakategori.php">
+
+                  <button class="btn btn-success position-absolute top-0 start-0">
+                    Tambah Data
+                  </button>
+                </a>
                 <div class="input-group-sm position-absolute top-0 end-0">
                   <button
                     class="btn btn-success"

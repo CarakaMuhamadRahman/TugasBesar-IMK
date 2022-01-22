@@ -1,3 +1,25 @@
+<?php 
+include_once("koneksi.php");
+
+	session_start();
+	// cek apakah yang mengakses halaman ini sudah login
+	if (!isset($_SESSION['nama_pengguna'])) {
+        header('location:login.php?pesan=gagal');
+    }
+	?>
+
+<?php 
+        // get count Pengguna
+        $result = mysqli_query($koneksi, "SELECT COUNT(*) as `total` FROM `pengguna`");
+        $dataPengguna = mysqli_fetch_assoc($result);
+        //
+        $result = mysqli_query($koneksi, "SELECT COUNT(*) as `total` FROM `menu`");
+        $dataMenu = mysqli_fetch_assoc($result);     
+        //
+        $result = mysqli_query($koneksi, "SELECT COUNT(*) as `total` FROM `menu_kategori`");
+        $dataMenu = mysqli_fetch_assoc($result);
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,7 +48,7 @@
           />
           ꦮꦫꦱ
         </a>
-        irfanginanjar
+        <div style="color: white;"><?php echo $_SESSION['nama_pengguna'] ?></div>
       </div>
     </nav>
     <div class="container-md mt-5">
@@ -40,29 +62,35 @@
         </div>
       </div>
       <div class="mt-4 d-flex justify-content-around mb-3">
-        <div class="card bg-primary" style="width: 15rem">
+        <div class="card border-2 border-dark" style="width: 15rem">
           <div class="card-body text-center">
-            <h5 class="card-title">Total Pesanan</h5>
-            <h1>100</h1>
+            <h5 class="card-title">Total Pegawai</h5>
+            <h1><?php echo $dataPengguna['total']; ?></h1>
           </div>
         </div>
-        <div class="card bg-warning" style="width: 15rem">
+        <div class="card border-2 border-dark" style="width: 15rem">
           <div class="card-body text-center">
             <h5 class="card-title">Total Pesanan</h5>
-            <h1>100</h1>
+            <h1><?php echo $dataMenu['total']; ?></h1>
           </div>
         </div>
-        <div class="card bg-info" style="width: 15rem">
+        <div class="card border-2 border-dark" style="width: 15rem">
           <div class="card-body text-center">
             <h5 class="card-title">Total Pemasukan</h5>
-            <h1>100</h1>
+            <h1>1</h1>
           </div>
         </div>
       </div>
       <div class="mt-4 d-flex justify-content-around mb-3">
-        <button style="width: 15rem">Kelola Data Pengguna</button>
+        <a href="keloladatapengguna.php">
+        <button src style="width: 15rem;">Kelola Data Pengguna</button>
+        </a>
+        <a href="keloladatamenu.php">
         <button style="width: 15rem">Kelola Data Menu</button>
+        </a>
+        <a href="keloladatakategori.php">
         <button style="width: 15rem">Kelola Data Kategori Menu</button>
+        </a>
       </div>
     </div>
 
