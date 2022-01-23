@@ -29,9 +29,9 @@ include_once("koneksi.php");
 
     if (isset($_GET['cari'])) {
         $cari = $_GET['cari'];
-        $result = mysqli_query($koneksi, "SELECT * FROM menu where nama_menu like'%" . $cari . "%'");
+        $result = mysqli_query($koneksi, "SELECT * FROM pesanan where id_order like'%" . $cari . "%'");
     } else {
-        $result = mysqli_query($koneksi, "SELECT * FROM menu ORDER BY no_menu ASC");
+        $result = mysqli_query($koneksi, "SELECT * FROM pesanan ORDER BY id_order ASC");
     }
     ?>
 
@@ -82,22 +82,17 @@ include_once("koneksi.php");
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       <!-- tabel pemesanan -->
       <div class="container">
-      <h1 class="mt-5">Kelola Stok Menu</h1>
+      <h1 class="mt-5">Kelola Pesanan</h1>
 
       <table class="table table-bordered">
         <tr>
-          <th colspan="7">Tabel Stok Menu</th>
+          <th colspan="7">Tabel Pesanan</th>
         </tr>
         <tr>
           <td>
             <table class="table table-bordered">
               <br />
               <div class="position-relative">
-                <a href="tambahdatamenu_koki.php">
-                  <button class="btn btn-success position-absolute top-0 start-0">
-                    Tambah Data
-                  </button>
-                </a>
                 <div class="input-group-sm position-absolute top-0 end-0">
                   <button
                     class="btn btn-success"
@@ -121,10 +116,10 @@ include_once("koneksi.php");
               <br />
 
               <tr style="text-align:center">
-                <th>No</th>
-                <th>Nama Menu</th>
-                <th>Harga</th>
-                <th>Stok</th>
+                <th>Id Order</th>
+                <th>Jumlah</th>
+                <th>Status</th>
+                <th>Id Pengguna</th>
                 <th>Aksi</th>
               </tr>
               <?php
@@ -132,12 +127,12 @@ include_once("koneksi.php");
                     while ($user_data = mysqli_fetch_array($result)) {
                     ?>
               <tr style="text-align:center">
-                <td><?php echo $user_data['no_menu']; ?></td>
-                <td><?php echo $user_data['nama_menu']; ?></td>
-                <td><?php echo $user_data['harga']; ?></td>
-                <td><?php echo $user_data['stok']; ?></td>
+                <td><?php echo $user_data['id_order']; ?></td>
+                <td><?php echo $user_data['jumlah']; ?></td>
+                <td><?php echo $user_data['status']; ?></td>
+                <td><?php echo $user_data['id_pengguna']; ?></td>
                 <td>
-                            <center><a class='btn btn-success' href='ubahdatamenu_koki.php?no_menu=<?= $user_data['no_menu']; ?>'>Edit</a>
+                            <center><a class='btn btn-success' href='ubahDataPesanan_Koki.php?id_order=<?= $user_data['id_order']; ?>'>Edit</a>
                         </td>
               </tr>
               <?php

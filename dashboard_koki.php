@@ -40,7 +40,7 @@ include_once("koneksi.php");
                 <img src="img/logoo 1.png" alt="" width="55" height="55">
                 ꦮꦫꦱ
               </a>
-                <button class="btn" type="submit" style="background-color: rgb(255, 255, 255);">Koki</button>
+              <div style="color: white; font-size: 20px;"><?php echo $_SESSION['nama_pengguna'] ?></div>
             </div>
           </nav>
           <br><br><br><br><br>
@@ -63,7 +63,7 @@ include_once("koneksi.php");
           <div class="col-sm-6">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Stok Menu</h5>
+                <h5 class="card-title">Jumlah Menu</h5>
                 <center><h3><?php echo $dataMenu['totalMenu']; ?></h3></center>
               </div>
             </div>
@@ -81,7 +81,7 @@ include_once("koneksi.php");
             </div>
             <br><br>
             <div class="button2">
-            <center><a href="#" class="btn2 btn-lg btn-block" style="text-decoration: none;">Lihat Pesanan Pelanggan</a></center>
+            <center><a href="kelolaPesanan_Koki.php" class="btn2 btn-lg btn-block" style="text-decoration: none;">Lihat Pesanan Pelanggan</a></center>
           </div>
           </div>
         </div>
