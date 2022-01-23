@@ -1,3 +1,22 @@
+<?php 
+include_once("koneksi.php");
+
+	session_start();
+	// cek apakah yang mengakses halaman ini sudah login
+	if (!isset($_SESSION['nama_pengguna'])) {
+        header('location:login.php?pesan=gagal');
+    }
+	?>
+
+<?php 
+        // get count Menu
+        $result = mysqli_query($koneksi, "SELECT COUNT(*) as `totalMenu` FROM `menu`");
+        $dataMenu = mysqli_fetch_assoc($result);
+        // get count Pesanan
+        $result = mysqli_query($koneksi, "SELECT COUNT(*) as `totalPesanan` FROM `pesanan`");
+        $dataPesanan = mysqli_fetch_assoc($result);     
+    ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,7 +30,7 @@
     <!-- custom css -->
     <link rel="stylesheet" href="koki.css">  
 
-    <title>WARAS</title>
+    <title>Koki | Waras</title>
   </head>
   <body>
     <body>
@@ -45,19 +64,19 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Stok Menu</h5>
-                <center><h3>100</h3></center>
+                <center><h3><?php echo $dataMenu['totalMenu']; ?></h3></center>
               </div>
             </div>
             <br><br>
             <div class="button1">
-            <center><a href="#" class="btn1 btn-lg btn-block" style="text-decoration: none;">Lihat Stok Menu</a></center>
+            <center><a href="kelolaStokMenu_Koki.php" class="btn1 btn-lg btn-block" style="text-decoration: none;">Lihat Stok Menu</a></center>
               </div>
           </div>
           <div class="col-sm-6">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Pesanan</h5>
-                <center><h3>50</h3></center>
+                <center><h3><?php echo $dataPesanan['totalPesanan']; ?></h3></center>
               </div>
             </div>
             <br><br>
