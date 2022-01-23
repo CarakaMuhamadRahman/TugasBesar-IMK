@@ -3,7 +3,7 @@ include_once("koneksi.php");
 
 	session_start();
 	// cek apakah yang mengakses halaman ini sudah login
-	if (!isset($_SESSION['nama_pegawai'])) {
+	if (!isset($_SESSION['nama_pengguna'])) {
         header('location:login.php?pesan=gagal');
     }
 	?>
@@ -26,9 +26,9 @@ include_once("koneksi.php");
 
     if (isset($_GET['cari'])) {
         $cari = $_GET['cari'];
-        $result = mysqli_query($koneksi, "SELECT * FROM pegawai where nama_pegawai like'%" . $cari . "%'");
+        $result = mysqli_query($koneksi, "SELECT * FROM pengguna where nama_pengguna like'%" . $cari . "%'");
     } else {
-        $result = mysqli_query($koneksi, "SELECT * FROM pegawai ORDER BY nama_pegawai ASC");
+        $result = mysqli_query($koneksi, "SELECT * FROM pengguna ORDER BY nama_pengguna ASC");
     }
     ?>
   </head>
@@ -45,7 +45,7 @@ include_once("koneksi.php");
           />
           ꦮꦫꦱ
         </a>
-        irfanginanjar
+        <div style="color: white;"><?php echo $_SESSION['nama_pengguna'] ?></div>
       </div>
     </nav>
     <div class="container mt-5">
@@ -57,10 +57,11 @@ include_once("koneksi.php");
                     $id_pengguna = $_POST['id_pengguna'];
                     $nama_pengguna = $_POST['nama_pengguna'];
                     $username = $_POST['username'];
-                    $pass = $_POST['pass'];
-                    $no_nota=$_POST['no_nota'];
-                    mysqli_query($koneksi,"insert into pengguna (id_pengguna,nama_pengguna,username,pass,no_nota) values ('$id_pengguna','$nama_pengguna','$username','$pass','$no_nota')");
-                }                   
+                    $jabatan = $_POST['jabatan'];
+                    $pass = md5($_POST['pass']);
+                    mysqli_query($koneksi,"insert into pengguna (id_pengguna,nama_pengguna,username,jabatan,pass) values ('$id_pengguna','$nama_pengguna','$username','$jabatan','$pass')");
+                    header("location:keloladatapengguna.php");
+                  }                   
                 
             ?>
     <div class="container border border-1 mt-4">
@@ -68,13 +69,13 @@ include_once("koneksi.php");
         <div class="mt-3 row">
           <label for="inputNP" class="col-sm-2 col-form-label">NP</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputPassword" name="id_pengguna" />
+            <input type="text" class="form-control"  name="id_pengguna" />
           </div>
         </div>
         <div class="mt-3 row">
           <label for="inputNP" class="col-sm-2 col-form-label">Nama</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputPassword" name="nama_pengguna" />
+            <input type="text" class="form-control"  name="nama_pengguna" />
           </div>
         </div>
         <div class="mt-3 row">
@@ -82,13 +83,20 @@ include_once("koneksi.php");
             >username</label
           >
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputPassword" name="username"/>
+            <input type="text" class="form-control"  name="username"/>
           </div>
         </div>
         <div class="mt-3 row">
           <label for="inputNP" class="col-sm-2 col-form-label">Jabatan</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputPassword" />
+            <!-- <input type="text" class="form-control"  /> -->
+            <select name="jabatan">
+              <option disabled selected>-- Select Jabatan --</option>
+              <option value="Admin">Admin</option>
+              <option value="Kasir">Kasir</option>
+              <option value="Koki">Koki</option>
+              <option value="Pelayan">Pelayan</option>
+            </select>
           </div>
         </div>
         <div class="mt-3 mb-3 row">
@@ -96,7 +104,7 @@ include_once("koneksi.php");
             >Password</label
           >
           <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword" />
+            <input type="password" class="form-control" id="inputPassword" name="pass"/>
           </div>
         </div>
         <td><input class="btn-outline-warning" type="submit" name="tombol" value="Tambah"></td>

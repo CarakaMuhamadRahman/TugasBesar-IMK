@@ -11,7 +11,7 @@ $pass = md5($_POST['pass']);
  
  
 // menyeleksi data user dengan username dan password yang sesuai
-$login = mysqli_query($koneksi,"select * from jabatan,pengguna where pengguna.username='$username' and pengguna.pass='$pass' and pengguna.id_pengguna=jabatan.id_pengguna");
+$login = mysqli_query($koneksi,"select * from jabatan,pengguna where pengguna.username='$username' and pengguna.pass='$pass' and pengguna.id_jabatan=jabatan.id_jabatan");
 // menghitung jumlah data yang ditemukan
 $cek = mysqli_num_rows($login);
  

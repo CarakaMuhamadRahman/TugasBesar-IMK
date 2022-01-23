@@ -29,7 +29,7 @@ include_once("koneksi.php");
         $cari = $_GET['cari'];
         $result = mysqli_query($koneksi, "SELECT * FROM pengguna where nama_pengguna like'%" . $cari . "%'");
     } else {
-        $result = mysqli_query($koneksi, "SELECT * FROM pengguna,jabatan where pengguna.id_pengguna=jabatan.id_pengguna ORDER BY nama_pengguna ASC");
+        $result = mysqli_query($koneksi, "SELECT * FROM pengguna ORDER BY nama_pengguna ASC");
     }
     ?>
   </head>
@@ -67,20 +67,23 @@ include_once("koneksi.php");
                   </button>
                 </a>
                 <div class="input-group-sm position-absolute top-0 end-0">
-                  <button
+                  <!-- <button
                     class="btn btn-success"
                     type="button"
                     id="button-addon1"
                   >
                     cari
-                  </button>
-
-                  <input
-                    type="text"
-                    name="cari"
-                    id="cari"
-                    placeholder="masukan"
-                  />
+                  </button>-->
+                  <form class="form-inline method='GET'">
+                    <div class="row">
+                        <div class="col-8">   
+                            <input class="form-control" name="cari"  type="search" placeholder="Cari Nama Menu" aria-label="Search">
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-success type="submit" action="">Cari</button>
+                        </div>
+                    </div>
+                </form>
                 </div>
               </div>
 
@@ -103,12 +106,12 @@ include_once("koneksi.php");
               <tr>
                 <td><?php echo $user_data['id_pengguna']; ?></td>
                 <td><?php echo $user_data['nama_pengguna']; ?></td>
-                <td><?php echo $user_data['nama_jabatan']; ?></td>
                 <td><?php echo $user_data['username']; ?></td>
+                <td><?php echo $user_data['jabatan']; ?></td>
                 <td><?php echo $user_data['pass']; ?></td>
                 <td>
-                            <center><a class='btn btn-success' href='admin_pegawai_edit.php?id_pegawai=<?= $user_data['id_pegawai']; ?>'>Edit</a> |
-                                <a class='btn btn-danger' href='admin_pegawai_hapus.php?id_pegawai=<?= $user_data['id_pegawai']; ?>' onclick="return confirm('anda yakin ingin menghapus data?')">Delete</a>
+                            <center><a class='btn btn-success' href='ubahdatapengguna.php?id_pengguna=<?= $user_data['id_pengguna']; ?>'>Edit</a> |
+                            <a class='btn btn-danger' href='hapusdatapengguna.php?id_pengguna=<?= $user_data['id_pengguna']; ?>' onclick="return confirm('anda yakin ingin menghapus data?')">Delete</a>
                         </td>
               </tr>
               <?php
