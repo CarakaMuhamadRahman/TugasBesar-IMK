@@ -29,9 +29,9 @@ include_once("koneksi.php");
 
     if (isset($_GET['cari'])) {
         $cari = $_GET['cari'];
-        $result = mysqli_query($koneksi, "SELECT * FROM pesanan where id_order like'%" . $cari . "%'");
+        $result = mysqli_query($koneksi, "SELECT no_order, jumlah, status, nama_menu, id_pengguna FROM pesanan, menu WHERE pesanan.no_menu=menu.no_menu AND status='Dalam Proses' AND no_order like'%" . $cari . "%'");
     } else {
-        $result = mysqli_query($koneksi, "SELECT * FROM pesanan ORDER BY id_order ASC");
+        $result = mysqli_query($koneksi, "SELECT no_order, jumlah, status, nama_menu, id_pengguna FROM pesanan, menu WHERE pesanan.no_menu=menu.no_menu AND status='Dalam Proses' ORDER BY no_order ASC");
     }
     ?>
 
@@ -94,20 +94,16 @@ include_once("koneksi.php");
               <br />
               <div class="position-relative">
                 <div class="input-group-sm position-absolute top-0 end-0">
-                  <button
-                    class="btn btn-success"
-                    type="button"
-                    id="button-addon1"
-                  >
-                    cari
-                  </button>
-
-                  <input
-                    type="text"
-                    name="cari"
-                    id="cari"
-                    placeholder="masukan"
-                  />
+                  <form class="form-inline method='GET'">
+                    <div class="row">
+                        <div class="col-8">   
+                            <input class="form-control" name="cari"  type="search" placeholder="Cari Menu" aria-label="Search">
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-success type="submit" action="">Cari</button>
+                        </div>
+                    </div>
+                </form>
                 </div>
               </div>
 
@@ -116,9 +112,10 @@ include_once("koneksi.php");
               <br />
 
               <tr style="text-align:center">
-                <th>Id Order</th>
+                <th>No Order</th>
                 <th>Jumlah</th>
                 <th>Status</th>
+                <th>Nama Menu</th>
                 <th>Id Pengguna</th>
                 <th>Aksi</th>
               </tr>
@@ -127,12 +124,13 @@ include_once("koneksi.php");
                     while ($user_data = mysqli_fetch_array($result)) {
                     ?>
               <tr style="text-align:center">
-                <td><?php echo $user_data['id_order']; ?></td>
+                <td><?php echo $user_data['no_order']; ?></td>
                 <td><?php echo $user_data['jumlah']; ?></td>
                 <td><?php echo $user_data['status']; ?></td>
+                <td><?php echo $user_data['nama_menu']; ?></td>
                 <td><?php echo $user_data['id_pengguna']; ?></td>
                 <td>
-                            <center><a class='btn btn-success' href='ubahDataPesanan_Koki.php?id_order=<?= $user_data['id_order']; ?>'>Edit</a>
+                            <center><a class='btn btn-success' href='ubahDataPesanan_Koki.php?no_order=<?= $user_data['no_order']; ?>'>Edit</a>
                         </td>
               </tr>
               <?php

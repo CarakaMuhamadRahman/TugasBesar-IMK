@@ -59,9 +59,8 @@ include_once("koneksi.php");
                     $nama_menu = $_POST['nama_menu'];
                     $harga = $_POST['harga'];
                     $stok = $_POST['stok'];
-                    $id_order = $_POST['id_order'];
                     $id_kategori = $_POST['id_kategori'];
-                    mysqli_query($koneksi,"insert into menu (no_menu,nama_menu,harga,stok,id_order,id_kategori) values ('$no_menu','$nama_menu','$harga','$stok','$id_order','$id_kategori')");
+                    mysqli_query($koneksi,"insert into menu (no_menu,nama_menu,harga,stok,id_kategori) values ('$no_menu','$nama_menu','$harga','$stok','$id_kategori')");
                     header("location:kelolaStokMenu_Koki.php");
                   }                   
                 
@@ -90,12 +89,6 @@ include_once("koneksi.php");
           <label for="inputNP" class="col-sm-2 col-form-label">Stok</label>
           <div class="col-sm-10">
             <input type="text" class="form-control"  name="stok"/>
-          </div>
-        </div>
-        <div class="mt-3 row">
-          <label for="inputNP" class="col-sm-2 col-form-label">Id Order</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control"  name="id_order"/>
           </div>
         </div>
         <div class="mt-3 row">

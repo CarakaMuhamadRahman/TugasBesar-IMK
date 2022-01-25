@@ -31,10 +31,10 @@ if($cek > 0){
 		header("location:dashboard_admin.php");
  
 	// cek jika user login sebagai pelayan
-	}else if($data['jabatan']=="pelayan"){
+	}else if($data['jabatan']=="Pelayan"){
 		// buat session login dan username
 		$_SESSION['username'] = $username;
-		$_SESSION['jabatan'] = "pelayan";
+		$_SESSION['jabatan'] = "Pelayan";
 		$_SESSION["nama_pengguna"] = $data["nama_pengguna"];
 		// alihkan ke halaman dashboard pengguna
 		header("location:dashboard_pelayan.php");
@@ -50,10 +50,10 @@ if($cek > 0){
  
       // cek jika user login sebagai kasir
 	}
-	else if($data['jabatan']=="kasir"){
+	else if($data['jabatan']=="Kasir"){
 		// buat session login dan username
 		$_SESSION['username'] = $username;
-		$_SESSION['jabatan'] = "kasir";
+		$_SESSION['jabatan'] = "Kasir";
 		$_SESSION["nama_pengguna"] = $data["nama_pengguna"];
 		// alihkan ke halaman dashboard kasir
 		header("location:dashboard_kasir.php");

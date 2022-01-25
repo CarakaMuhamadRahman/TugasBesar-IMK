@@ -92,29 +92,35 @@ include_once("koneksi.php");
           <td>
             <table class="table table-bordered">
               <br />
-              <div class="position-relative">
+              
+                  <!-- <button
+                    class="btn btn-success"
+                    type="button"
+                    id="button-addon1"
+                  >
+                    cari
+                  </button>-->
+                  <div class="position-relative">
                 <a href="tambahdatamenu_koki.php">
                   <button class="btn btn-success position-absolute top-0 start-0">
                     Tambah Data
                   </button>
                 </a>
                 <div class="input-group-sm position-absolute top-0 end-0">
-                  <button
-                    class="btn btn-success"
-                    type="button"
-                    id="button-addon1"
-                  >
-                    cari
-                  </button>
-
-                  <input
-                    type="text"
-                    name="cari"
-                    id="cari"
-                    placeholder="masukan"
-                  />
+                  <form class="form-inline method='GET'">
+                    <div class="row">
+                        <div class="col-8">   
+                            <input class="form-control" name="cari"  type="search" placeholder="Cari Menu" aria-label="Search">
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-success type="submit" action="">Cari</button>
+                        </div>
+                    </div>
+                </form>
                 </div>
               </div>
+
+                  
 
               <br />
               <br />
@@ -137,7 +143,8 @@ include_once("koneksi.php");
                 <td><?php echo $user_data['harga']; ?></td>
                 <td><?php echo $user_data['stok']; ?></td>
                 <td>
-                            <center><a class='btn btn-success' href='ubahdatamenu_koki.php?no_menu=<?= $user_data['no_menu']; ?>'>Edit</a>
+                            <center><a class='btn btn-success' href='ubahdatamenu_koki.php?no_menu=<?= $user_data['no_menu']; ?>'>Edit</a> |
+                            <a class='btn btn-danger' href='hapusDataMenu_Koki.php?no_menu=<?= $user_data['no_menu']; ?>' onclick="return confirm('anda yakin ingin menghapus data?')">Delete</a>
                         </td>
               </tr>
               <?php

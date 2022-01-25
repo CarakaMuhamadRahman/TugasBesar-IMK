@@ -19,7 +19,6 @@ while ($user_data = mysqli_fetch_array($result)) {
     $nama_menu = $user_data['nama_menu'];
     $harga = $user_data['harga'];
     $stok = $user_data['stok'];
-    $id_order = $user_data['id_order'];
     $id_kategori = $user_data['id_kategori'];
 }
 ?>
@@ -92,12 +91,6 @@ while ($user_data = mysqli_fetch_array($result)) {
           <label for="inputNP" class="col-sm-2 col-form-label">Stok</label>
           <div class="col-sm-10">
           <input type="text" class="form-control"  name="stok" value="<?php echo $stok; ?>"/>
-          </div>
-        </div>
-        <div class="mt-3 mb-3 row">
-          <label for="inputNP" class="col-sm-2 col-form-label">Id Order</label>
-          <div class="col-sm-10">
-          <input type="text" class="form-control"  name="id_order" value="<?php echo $id_order; ?>" disabled>
           </div>
         </div>
         <div class="mt-3 mb-3 row">

@@ -10,14 +10,15 @@ include_once("koneksi.php");
 <?php
 // Display selected user data based on id
 // Getting id from url
-$id_order = $_GET['id_order'];
+$no_order = $_GET['no_order'];
 // Fetech user data based on id
-$result = mysqli_query($koneksi, "SELECT * FROM pesanan WHERE id_order='$id_order'");
+$result = mysqli_query($koneksi, "SELECT no_order, jumlah, status, nama_menu, id_pengguna FROM pesanan, menu WHERE pesanan.no_menu=menu.no_menu AND no_order='$no_order'");
 
 while ($user_data = mysqli_fetch_array($result)) {
 
     $jumlah = $user_data['jumlah'];
     $status = $user_data['status'];
+    $nama_menu = $user_data['nama_menu'];
     $id_pengguna = $user_data['id_pengguna'];
 }
 ?>
@@ -41,9 +42,9 @@ while ($user_data = mysqli_fetch_array($result)) {
 
     if (isset($_GET['cari'])) {
         $cari = $_GET['cari'];
-        $result = mysqli_query($koneksi, "SELECT * FROM pesanan where id_order like'%" . $cari . "%'");
+        $result = mysqli_query($koneksi, "SELECT id_order, no_order, jumlah, status, nama_menu, id_pengguna FROM pesanan, menu WHERE pesanan.no_menu=menu.no_menu like'%" . $cari . "%'");
     } else {
-        $result = mysqli_query($koneksi, "SELECT * FROM pesanan ORDER BY id_order ASC");
+        $result = mysqli_query($koneksi, "SELECT id_order, no_order, jumlah, status, nama_menu, id_pengguna FROM pesanan, menu WHERE pesanan.no_menu=menu.no_menu");
     }
     ?>
   </head>
@@ -69,9 +70,9 @@ while ($user_data = mysqli_fetch_array($result)) {
     <div class="container border border-1 mt-4">
       <form method="post" action="">
         <div class="mt-3 row">
-          <label for="inputNP" class="col-sm-2 col-form-label">Id Order</label>
+          <label for="inputNP" class="col-sm-2 col-form-label">No Order</label>
           <div class="col-sm-10">
-          <input type="text" class="form-control" name="id_order" value="<?php echo $id_order; ?>" disabled>
+          <input type="text" class="form-control" name="no_order" value="<?php echo $no_order; ?>" disabled>
           </div>
         </div>
         <div class="mt-3 row">
@@ -84,6 +85,12 @@ while ($user_data = mysqli_fetch_array($result)) {
             <label for="inputNP" class="col-sm-2 col-form-label">Status</label>
             <div class="col-sm-10">
               <input type="text" class="form-control"  name="status" value="<?php echo $status; ?>"/>
+            </div>
+          </div>
+          <div class="mt-3 row">
+            <label for="inputNP" class="col-sm-2 col-form-label">Nama Menu</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control"  name="nama_menu" value="<?php echo $nama_menu; ?>" disabled>
             </div>
           </div>
         <div class="mt-3 mb-3 row">
@@ -104,12 +111,14 @@ while ($user_data = mysqli_fetch_array($result)) {
         <?php 
                                 if(isset($_POST['update']))
                                 {
+                                    
                                     $jumlah = $_POST['jumlah'];
                                     $status = $_POST['status'];
+                                    $nama_menu = $_POST['nama_menu'];
                                     $id_pengguna = $_POST['id_pengguna'];
 
                                     // update user data
-                                    $result = mysqli_query($koneksi, "UPDATE `pesanan` SET  `status`='$status' WHERE `id_order`='$id_order'");
+                                    $result = mysqli_query($koneksi, "UPDATE `pesanan` SET  `status`='$status' WHERE `no_order`='$no_order'");
 
                                     // Redirect to homepage to display updated user in list
                                     header("Location: kelolaPesanan_Koki.php");
