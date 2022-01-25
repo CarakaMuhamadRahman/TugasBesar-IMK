@@ -21,11 +21,11 @@ if($cek > 0){
 	$data = mysqli_fetch_assoc($login);
  
 	// cek jika user login sebagai admin
-	if($data['jabatan']=="Admin"){
+	if($data['jabatan']=="admin"){
  
 		// buat session login dan username
 		$_SESSION['username'] = $username;
-		$_SESSION['jabatan'] = "Admin";
+		$_SESSION['jabatan'] = "admin";
 		$_SESSION["nama_pengguna"] = $data["nama_pengguna"];
 		// alihkan ke halaman dashboard admin
 		header("location:dashboard_admin.php");
