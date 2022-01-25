@@ -7,6 +7,20 @@ include_once("koneksi.php");
         header('location:login.php?pesan=gagal');
     }
 	?>
+<?php
+// Display selected user data based on id
+// Getting id from url
+$no_menu = $_GET['no_menu'];
+// Fetech user data based on id
+$result = mysqli_query($koneksi, "SELECT * FROM menu WHERE no_menu='$no_menu'");
+
+while ($user_data = mysqli_fetch_array($result)) {
+
+    $nama_menu = $user_data['nama_menu'];
+    $harga = $user_data['harga'];
+    $id_kategori = $user_data['id_kategori'];
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,16 +36,6 @@ include_once("koneksi.php");
     <link rel="stylesheet" href="style.css" />
 
     <title>Admin | Waras</title>
-    <?php
-    include_once("koneksi.php");
-
-    if (isset($_GET['cari'])) {
-        $cari = $_GET['cari'];
-        $result = mysqli_query($koneksi, "SELECT * FROM menu where nama_menu like'%" . $cari . "%'");
-    } else {
-        $result = mysqli_query($koneksi, "SELECT * FROM menu ORDER BY nama_menu ASC");
-    }
-    ?>
   </head>
   <body>
     <nav class="navbar navbar-dark nav-admin">
@@ -50,55 +54,57 @@ include_once("koneksi.php");
       </div>
     </nav>
     <div class="container mt-5">
-      <h3>Tambah Data Menu</h3>
+      <h3>Ubah Data Menu</h3>
     </div>
-    <?php 
-                if(isset($_POST['tombol']))
-                {
-                    $no_menu = $_POST['no_menu'];
-                    $nama_menu = $_POST['nama_menu'];
-                    $harga = $_POST['harga'];
-                    $id_kategori = $_POST['id_kategori'];
-                    mysqli_query($koneksi,"insert into menu (no_menu,nama_menu,harga,id_kategori) values ('$no_menu','$nama_menu','$harga','$id_kategori')");
-                    header("location:keloladatamenu.php");
-                  }                   
-                
-            ?>
     <div class="container border border-1 mt-4">
-      <form method="POST">
+    <form method="post" action="">
         <div class="mt-3 row">
           <label for="inputNP" class="col-sm-2 col-form-label">No Menu</label>
           <div class="col-sm-10">
-          <input type="text" class="form-control"  name="no_menu" />
+          <input type="text" class="form-control" name="no_menu" value="<?php echo $no_menu; ?>" disabled>
           </div>
         </div>
         <div class="mt-3 row">
           <label for="inputNP" class="col-sm-2 col-form-label">Nama Menu</label>
           <div class="col-sm-10">
-          <input type="text" class="form-control"  name="nama_menu" />
+          <input type="text" class="form-control"   name="nama_menu" value="<?php echo $nama_menu; ?>" />
           </div>
         </div>
         <div class="mt-3 row">
             <label for="inputNP" class="col-sm-2 col-form-label">Harga</label>
             <div class="col-sm-10">
-            <input type="text" class="form-control"  name="harga"/>
+            <input type="text" class="form-control"   name="harga" value="<?php echo $harga; ?>" />
             </div>
           </div>
           <div class="mt-3 row">
-          <label for="inputNP" class="col-sm-2 col-form-label">Id Kategori</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control"  name="id_kategori"/>
+            <label for="inputNP" class="col-sm-2 col-form-label">id_kategori</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control"   name="id_kategori" value="<?php echo $id_kategori; ?>" />
+            </div>
           </div>
-        </div>
-       
         <style>
             .btn-success {
               width: 300px;
             }
             </style>
         <center>
-        <td><input class="btn btn-success mb-3" type="submit" name="tombol" value="Tambah"></td>
+        <input class="btn btn-success" type="submit" name="update" value="update"></td>
         </center>
+        <?php 
+                                if(isset($_POST['update']))
+                                {
+                                    $nama_menu = $_POST['nama_menu'];
+                                    $harga = $_POST['harga'];
+                                    $id_kategori = $_POST['id_kategori'];
+
+                                    // update user data
+                                    $result = mysqli_query($koneksi, "UPDATE `menu` SET `no_menu`='$no_menu',`nama_menu`='$nama_menu',`harga`='$harga',`id_kategori`='$id_kategori' WHERE `no_menu`='$no_menu'");
+
+                                    // Redirect to homepage to display updated user in list
+                                    header("Location: keloladatamenu.php");
+                                }                   
+                                
+                            ?>
       </form>
     </div>
     <script src="./js/bootstrap.bundle.min.js"></script>

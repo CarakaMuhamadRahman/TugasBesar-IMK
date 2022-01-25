@@ -1,3 +1,14 @@
+<?php 
+include_once("koneksi.php");
+
+	session_start();
+	// cek apakah yang mengakses halaman ini sudah login
+	if (!isset($_SESSION['nama_pengguna'])) {
+        header('location:login.php?pesan=gagal');
+    }
+	?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,6 +23,16 @@
     <link rel="stylesheet" href="style.css" />
 
     <title>Admin | Waras</title>
+    <?php
+    include_once("koneksi.php");
+
+    if (isset($_GET['cari'])) {
+        $cari = $_GET['cari'];
+        $result = mysqli_query($koneksi, "SELECT * FROM menu_kategori where nama_kategori like'%" . $cari . "%'");
+    } else {
+        $result = mysqli_query($koneksi, "SELECT * FROM menu_kategori ORDER BY nama_kategori ASC");
+    }
+    ?>
   </head>
   <body>
     <nav class="navbar navbar-dark nav-admin">
@@ -26,7 +47,7 @@
           />
           ꦮꦫꦱ
         </a>
-        handrian
+        <div style="color: white;"><?php echo $_SESSION['nama_pengguna'] ?></div>
       </div>
     </nav>
     <div class="container">
@@ -69,17 +90,26 @@
               <br />
 
               <tr>
-                <th>No Menu</th>
-                <th>Nama Menu</th>
-                <th>Nama Kategori</th>
+                <th>Id Kategori</th>
+                <th>Nama Kategori Menu</th>
                 <th>Aksi</th>
               </tr>
+              <?php
+                    $no = 1;
+                    while ($user_data = mysqli_fetch_array($result)) {
+                    ?>
               <tr>
-                <td>01</td>
-                <td>nasgor</td>
-                <td>makanan</td>
-                <td></td>
+              <td><?php echo $user_data['id_kategori']; ?></td>
+                <td><?php echo $user_data['nama_kategori']; ?></td>
+                <td>
+                            <center><a class='btn btn-success' href='ubahdatakategori.php?id_kategori=<?= $user_data['id_kategori']; ?>'>Edit</a> |
+                            <a class='btn btn-danger' href='hapusdatakategori.php?id_kategori=<?= $user_data['id_kategori']; ?>' onclick="return confirm('anda yakin ingin menghapus data?')">Delete</a>
+                        </td>
               </tr>
+              <?php
+                    }
+                    ?>
+
             </table>
           </td>
         </tr>

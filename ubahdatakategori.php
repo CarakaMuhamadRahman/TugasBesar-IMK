@@ -10,16 +10,13 @@ include_once("koneksi.php");
 <?php
 // Display selected user data based on id
 // Getting id from url
-$id_pengguna = $_GET['id_pengguna'];
+$id_kategori = $_GET['id_kategori'];
 // Fetech user data based on id
-$result = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$id_pengguna'");
+$result = mysqli_query($koneksi, "SELECT * FROM menu_kategori WHERE id_kategori='$id_kategori'");
 
 while ($user_data = mysqli_fetch_array($result)) {
 
-    $nama_pengguna = $user_data['nama_pengguna'];
-    $username = $user_data['username'];
-    $jabatan = $user_data['jabatan'];
-    $pass = $user_data['pass'];
+    $nama_kategori = $user_data['nama_kategori'];
 }
 ?>
 
@@ -41,7 +38,7 @@ while ($user_data = mysqli_fetch_array($result)) {
   <body>
     <nav class="navbar navbar-dark nav-admin">
       <div class="container-fluid" height="40">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="keloladatakategori.php">
           <img
             src="./img/logo_waras.png"
             alt=""
@@ -55,35 +52,22 @@ while ($user_data = mysqli_fetch_array($result)) {
       </div>
     </nav>
     <div class="container mt-5">
-      <h3>Ubah Data Pegawai</h3>
+      <h3>Ubah Data Kategori</h3>
     </div>
     <div class="container border border-1 mt-4">
-      <form method="post" action="">
+    <form method="post" action="">
         <div class="mt-3 row">
-          <label for="inputNP" class="col-sm-2 col-form-label">NP</label>
+          <label for="inputNP" class="col-sm-2 col-form-label">No Kategori</label>
           <div class="col-sm-10">
-          <input type="text" class="form-control" name="id_pengguna" value="<?php echo $id_pengguna; ?>" disabled>
+              <input type="text" class="form-control" name="id_kategori" value="<?php echo $id_kategori; ?>" disabled>
           </div>
         </div>
         <div class="mt-3 row">
-          <label for="inputNP" class="col-sm-2 col-form-label">Nama</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputPassword"  name="nama_pengguna" value="<?php echo $nama_pengguna; ?>" />
-          </div>
-        </div>
-        <div class="mt-3 row">
-            <label for="inputNP" class="col-sm-2 col-form-label">Username</label>
+            <label for="inputNP" class="col-sm-2 col-form-label">Nama Kategori Menu</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control"  name="username" value="<?php echo $username; ?>"/>
+            <input type="text" class="form-control"   name="nama_kategori" value="<?php echo $nama_kategori; ?>" />
             </div>
           </div>
-        <div class="mt-3 mb-3 row">
-          <label for="inputNP" class="col-sm-2 col-form-label">Jabatan</label>
-          <div class="col-sm-10">
-          <input type="text" class="form-control"  name="jabatan" value="<?php echo $jabatan; ?>"/>
-          </div>
-        </div>
-
         <style>
             .btn-success {
               width: 300px;
@@ -95,15 +79,13 @@ while ($user_data = mysqli_fetch_array($result)) {
         <?php 
                                 if(isset($_POST['update']))
                                 {
-                                    $nama_pengguna = $_POST['nama_pengguna'];
-                                    $username = $_POST['username'];
-                                    $jabatan = $_POST['jabatan'];
+                                    $nama_kategori = $_POST['nama_kategori'];
 
                                     // update user data
-                                    $result = mysqli_query($koneksi, "UPDATE `pengguna` SET `id_pengguna`='$id_pengguna',`nama_pengguna`='$nama_pengguna',`username`='$username',`jabatan`='$jabatan' WHERE `id_pengguna`='$id_pengguna'");
+                                    $result = mysqli_query($koneksi, "UPDATE `menu_kategori` SET `id_kategori`='$id_kategori',`nama_kategori`='$nama_kategori' WHERE `id_kategori`='$id_kategori'");
 
                                     // Redirect to homepage to display updated user in list
-                                    header("Location: keloladatapengguna.php");
+                                    header("Location: keloladatakategori.php");
                                 }                   
                                 
                             ?>

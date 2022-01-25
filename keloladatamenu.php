@@ -1,3 +1,15 @@
+<?php 
+include_once("koneksi.php");
+
+	session_start();
+	// cek apakah yang mengakses halaman ini sudah login
+	if (!isset($_SESSION['nama_pengguna'])) {
+        header('location:login.php?pesan=gagal');
+    }
+	?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,6 +24,16 @@
     <link rel="stylesheet" href="style.css" />
 
     <title>Admin | Waras</title>
+    <?php
+    include_once("koneksi.php");
+
+    if (isset($_GET['cari'])) {
+        $cari = $_GET['cari'];
+        $result = mysqli_query($koneksi, "SELECT * FROM menu where nama_menu like'%" . $cari . "%'");
+    } else {
+        $result = mysqli_query($koneksi, "SELECT * FROM menu ORDER BY nama_menu ASC");
+    }
+    ?>
   </head>
   <body>
     <nav class="navbar navbar-dark nav-admin">
@@ -26,7 +48,7 @@
           />
           ꦮꦫꦱ
         </a>
-        handrian
+        <div style="color: white;"><?php echo $_SESSION['nama_pengguna'] ?></div>
       </div>
     </nav>
     <div class="container">
@@ -41,7 +63,7 @@
             <table class="table table-bordered">
               <br />
               <div class="position-relative">
-                <a href="tambahdatakategori.php">
+                <a href="tambahdatamenu.php">
 
                   <button class="btn btn-success position-absolute top-0 start-0">
                     Tambah Data
@@ -68,26 +90,29 @@
               <br />
               <br />
               <br />
-
               <tr>
-                <th>No Menu</th>
+              <th>No Menu</th>
                 <th>Nama Menu</th>
                 <th>Harga</th>
-                <th>Id Order</th>
-                <th>Id Kategori</th>
                 <th>Aksi</th>
               </tr>
+              <?php
+                    $no = 1;
+                    while ($user_data = mysqli_fetch_array($result)) {
+                    ?>
               <tr>
-                <td>01</td>
-                <td>nasgor</td>
-                <td>12.000</td>
-                <td>a1</td>
-                <td>m1</td>
-                <td></td>
+              <td><?php echo $user_data['no_menu']; ?></td>
+                <td><?php echo $user_data['nama_menu']; ?></td>
+                <td><?php echo $user_data['harga']; ?></td>
+                <td>
+                            <center><a class='btn btn-success' href='ubahdatamenu.php?no_menu=<?= $user_data['no_menu']; ?>'>Edit</a> |
+                            <a class='btn btn-danger' href='hapusdatamenu.php?no_menu=<?= $user_data['no_menu']; ?>' onclick="return confirm('anda yakin ingin menghapus data?')">Delete</a>
+                        </td>
               </tr>
-            </table>
-          </td>
-        </tr>
+              <?php
+                    }
+                    ?>
+
       </table>
     </div>
     <script src="./js/bootstrap.bundle.min.js"></script>

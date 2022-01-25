@@ -77,7 +77,7 @@ include_once("koneksi.php");
                   <form class="form-inline method='GET'">
                     <div class="row">
                         <div class="col-8">   
-                            <input class="form-control" name="cari"  type="search" placeholder="Cari Nama Menu" aria-label="Search">
+                            <input class="form-control" name="cari"  type="search" placeholder="Cari Nama Pengawai" aria-label="Search">
                         </div>
                         <div class="col">
                             <button class="btn btn-success type="submit" action="">Cari</button>
@@ -106,8 +106,8 @@ include_once("koneksi.php");
               <tr>
                 <td><?php echo $user_data['id_pengguna']; ?></td>
                 <td><?php echo $user_data['nama_pengguna']; ?></td>
-                <td><?php echo $user_data['username']; ?></td>
                 <td><?php echo $user_data['jabatan']; ?></td>
+                <td><?php echo $user_data['username']; ?></td>
                 <td><?php echo $user_data['pass']; ?></td>
                 <td>
                             <center><a class='btn btn-success' href='ubahdatapengguna.php?id_pengguna=<?= $user_data['id_pengguna']; ?>'>Edit</a> |
