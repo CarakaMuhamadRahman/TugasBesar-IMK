@@ -1,3 +1,21 @@
+<?php 
+include_once("koneksi.php");
+
+	session_start();
+	// cek apakah yang mengakses halaman ini sudah login
+	if (!isset($_SESSION['nama_pengguna'])) {
+        header('location:login.php?pesan=gagal');
+    }
+	?>
+
+<?php 
+        // get count Menu
+        $result = mysqli_query($koneksi, "SELECT COUNT(*) as `totalPembayaran` FROM `pembayaran`");
+        $dataMenu = mysqli_fetch_assoc($result);
+        // // get count Pesanan
+        // $result = mysqli_query($koneksi, "SELECT COUNT(*) as `totalPencatatan` FROM `pembayaran`");
+        // $dataPesanan = mysqli_fetch_assoc($result);     
+    ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,7 +29,7 @@
     <!-- custom css -->
     <link rel="stylesheet" href="kasir.css">  
 
-    <title>WARAS</title>
+    <title>WARAS | Kasir</title>
   </head>
   <body>
     <body>
@@ -21,7 +39,7 @@
                 <img src="img/logoo 1.png" alt="" width="55" height="55">
                 ꦮꦫꦱ
               </a>
-                <button class="btn" type="submit" style="background-color: rgb(255, 255, 255);">Kasir</button>
+              <div style="color: white; font-size: 20px;"><?php echo $_SESSION['nama_pengguna'] ?></div>
             </div>
           </nav>
           <br><br><br><br><br>
@@ -45,24 +63,26 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Pencatatan</h5>
-                <center><h3>10</h3></center>
+                <center><h3><?php echo $dataMenu['totalPembayaran']; ?></h3></center>
+
               </div>
             </div>
             <br><br>
             <div class="button1">
-            <center><a href="#" class="btn1 btn-lg btn-block" style="text-decoration: none;">Lihat Pencatatan</a></center>
+            <center><a href="pencatatankasir.php" class="btn1 btn-lg btn-block" style="text-decoration: none;">Lihat Pencatatan</a></center>
               </div>
           </div>
           <div class="col-sm-6">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Pembayaran</h5>
-                <center><h3>40</h3></center>
+                                <center><h3><?php echo $dataMenu['totalPembayaran']; ?></h3></center>
+
               </div>
             </div>
             <br><br>
             <div class="button2">
-            <center><a href="#" class="btn2 btn-lg btn-block" style="text-decoration: none;">Lihat Pembayaran</a></center>
+            <center><a href="pembayarankasir.php" class="btn2 btn-lg btn-block" style="text-decoration: none;">Lihat Pembayaran</a></center>
           </div>
           </div>
         </div>

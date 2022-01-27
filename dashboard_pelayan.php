@@ -1,25 +1,49 @@
+<?php 
+include_once("koneksi.php");
+
+	session_start();
+	// cek apakah yang mengakses halaman ini sudah login
+	if (!isset($_SESSION['nama_pengguna'])) {
+        header('location:login.php?pesan=gagal');
+    }
+	?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Pelayan</title>
+    <title>Stok Menu</title>
 
     <!-- Bootstrap CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
 
     <!-- custom css -->
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="koki.css"> 
+
+    <title>Koki | Waras</title>
+
+    <?php
+    include_once("koneksi.php");
+
+    if (isset($_GET['cari'])) {
+        $cari = $_GET['cari'];
+        $result = mysqli_query($koneksi, "SELECT * FROM pesanan where id_order like'%" . $cari . "%'");
+    } else {
+        $result = mysqli_query($koneksi, "SELECT * FROM pesanan ORDER BY id_order ASC");
+    }
+    ?>
 
 </head>
-<body>
+  <body>
+    
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid custom-navbar">
-          <a class="navbar-brand judul-logo" href="#">
-            <img src="./img/logo_waras.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
-            ꦮꦫꦱ
+    <nav class="navbar navbar-expand-lg navbar-dark" style="padding-top: 0;">
+        <div class="container-fluid custom-navbar1">
+          <a class="navbar-brand judul-icon" href="#">
+            <img src="img/logoo 1.png" alt="" width="55" height="55">
+            <font color = "black">ꦮꦫꦱ</font>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -27,10 +51,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link active menu-1" aria-current="page" href="aboutus.html">about us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link menu-2" href="login.html">Login</a>
+              <div style="color: black; font-size: 20px;"><?php echo $_SESSION['nama_pengguna'] ?></div>
               </li>
             </ul>
           </div>
@@ -38,40 +59,92 @@
     </nav>
     <!-- navbar -->
 
-      <!-- jumbotron -->
+    <!-- jumbotron -->
       <div id="jumbotron">
           <div class="col-sm-12">
-            <img src="./img/dashboard_pelayan.png" class="img-fluid dashboard-pelayan" alt="...">
-            <div class="judul1">Selamat Datang Di</div>
-            <div class="judul2">Waras</div>
+            <img src="./img/pageStokKoki.png" class="img-fluid dashboard-pelayan" alt="..." width="100%">
+              <div class="" style="posisition: relative">
+                <div class="mb-5" style="position: absolute; bottom: 0; left: 42%;">
+                  <a href = "#menu" class="btn btn-dsh" style="width: 15rem">Lihat Menu</a>
+                </div>
+             </div>
+            <div class="judul-1">Selamat Datang Di</div>
+            <div class="login">
+        </div>
+            <div class="judul-2">Waras</div>
+            
           </div>
+          
+      
+      <!-- tabel pemesanan -->
+      <div class="container">
+      <h1 class="mt-5" id="menu">Pilihan Menu</h1>
+
+      <table class="table table-bordered">
+        <tr>
+          <th colspan="7">Tabel Menu</th>
+        </tr>
+        <tr>
+          <td>
+            <table class="table table-bordered">
+              <br />
+              
+                  <!-- <button
+                    class="btn btn-success"
+                    type="button"
+                    id="button-addon1"
+                  >
+                    cari
+                  </button>-->
+                  <div class="position-relative">
+                <div class="input-group-sm position-absolute top-0 end-0">
+                  <form class="form-inline method='GET'">
+                    <div class="row">
+
+                        <div class="col">
+                          <a href="tambahadatapesanan.php" class="btn btn-success"> Pesan</a>
+                        </div>
+                    </div>
+                </form>
+                </div>
+              </div>
+
+              <br />
+              <br />
+              <br />
+
+              <tr style="text-align:center">
+                <th>id_order</th>
+                <th>jumlah</th>
+                <th>status</th>
+                <th>no_menu menu</th>
+              </tr>
+              <?php
+                    $no = 1;
+                    while ($user_data = mysqli_fetch_array($result)) {
+                    ?>
+              <tr style="text-align:center">
+                <td><?php echo $user_data['id_order']; ?></td>
+                <td><?php echo $user_data['jumlah']; ?></td>
+                <td><?php echo $user_data['status']; ?></td>
+                <td><?php echo $user_data['no_menu']; ?></td>
+                
+              </tr>
+              <?php
+                    }
+                    ?>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+      <!-- tabel pemesanan -->
       </div>
       <!-- jumbotron -->
 
-      <!-- tabel pemesanan -->
-      <div class="container-fluid">
-        <div class="col-sm-12">
-          <h5 class="judul3">Pemesanan</h5>
-          <button type="button" class="btn btn-primary btn-pesan">Pesan</button>
-          <table class="table table-bordered t-pemesanan">
-            <thead>
-              <tr>
-                <th scope="col">No</th>
-                <th scope="col">Menu</th>
-                <th scope="col">Gambar</th>
-                <th scope="col">Harga</th>
-                <th scope="col">Stok</th>
-                <th scope="col">Jumlah</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <!-- tabel pemesanan -->
 
-    <script src="./js/bootstrap.bundle.min.js"></script>
+      <script src="./js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
