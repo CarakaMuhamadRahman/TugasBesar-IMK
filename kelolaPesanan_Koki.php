@@ -51,7 +51,17 @@ include_once("koneksi.php");
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-              <div style="color: black; font-size: 20px;"><?php echo $_SESSION['nama_pengguna'] ?></div>
+              <!-- Drop Down -->
+              <div class="dropdown mr-10">
+                <a class="btn  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                       <?php echo $_SESSION['nama_pengguna'] ?>
+               </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="logout.php">Logout</a></li>
+              </div>
+              </div>
+              <!-- Drop Down -->
               </li>
             </ul>
           </div>
