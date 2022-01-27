@@ -12,14 +12,13 @@ include_once("koneksi.php");
 // Getting id from url
 $no_order = $_GET['no_order'];
 // Fetech user data based on id
-$result = mysqli_query($koneksi, "SELECT no_order, jumlah, status, nama_menu, id_pengguna FROM pesanan, menu WHERE pesanan.no_menu=menu.no_menu AND no_order='$no_order'");
+$result = mysqli_query($koneksi, "SELECT no_order, jumlah, status, nama_menu FROM pesanan, menu WHERE pesanan.no_menu=menu.no_menu AND no_order='$no_order'");
 
 while ($user_data = mysqli_fetch_array($result)) {
 
     $jumlah = $user_data['jumlah'];
     $status = $user_data['status'];
     $nama_menu = $user_data['nama_menu'];
-    $id_pengguna = $user_data['id_pengguna'];
 }
 ?>
 
@@ -42,9 +41,9 @@ while ($user_data = mysqli_fetch_array($result)) {
 
     if (isset($_GET['cari'])) {
         $cari = $_GET['cari'];
-        $result = mysqli_query($koneksi, "SELECT id_order, no_order, jumlah, status, nama_menu, id_pengguna FROM pesanan, menu WHERE pesanan.no_menu=menu.no_menu like'%" . $cari . "%'");
+        $result = mysqli_query($koneksi, "SELECT id_order, no_order, jumlah, status, nama_menu FROM pesanan, menu WHERE pesanan.no_menu=menu.no_menu like'%" . $cari . "%'");
     } else {
-        $result = mysqli_query($koneksi, "SELECT id_order, no_order, jumlah, status, nama_menu, id_pengguna FROM pesanan, menu WHERE pesanan.no_menu=menu.no_menu");
+        $result = mysqli_query($koneksi, "SELECT id_order, no_order, jumlah, status, nama_menu FROM pesanan, menu WHERE pesanan.no_menu=menu.no_menu");
     }
     ?>
   </head>
@@ -87,19 +86,12 @@ while ($user_data = mysqli_fetch_array($result)) {
               <input type="text" class="form-control"  name="status" value="<?php echo $status; ?>"/>
             </div>
           </div>
-          <div class="mt-3 row">
+          <div class="mt-3 mb-4 row">
             <label for="inputNP" class="col-sm-2 col-form-label">Nama Menu</label>
             <div class="col-sm-10">
               <input type="text" class="form-control"  name="nama_menu" value="<?php echo $nama_menu; ?>" disabled>
             </div>
           </div>
-        <div class="mt-3 mb-3 row">
-          <label for="inputNP" class="col-sm-2 col-form-label">Id Pengguna</label>
-          <div class="col-sm-10">
-          <input type="text" class="form-control"  name="id_pengguna" value="<?php echo $id_pengguna; ?>" disabled>
-          </div>
-        </div>
-
         <style>
             .btn-success {
               width: 300px;

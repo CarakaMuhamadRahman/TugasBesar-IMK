@@ -29,9 +29,9 @@ include_once("koneksi.php");
 
     if (isset($_GET['cari'])) {
         $cari = $_GET['cari'];
-        $result = mysqli_query($koneksi, "SELECT no_order, jumlah, status, nama_menu, id_pengguna FROM pesanan, menu WHERE pesanan.no_menu=menu.no_menu AND status='Dalam Proses' AND no_order like'%" . $cari . "%'");
+        $result = mysqli_query($koneksi, "SELECT no_order, jumlah, status, nama_menu FROM pesanan, menu WHERE pesanan.no_menu=menu.no_menu AND status='Dalam Proses' AND no_order like'%" . $cari . "%'");
     } else {
-        $result = mysqli_query($koneksi, "SELECT no_order, jumlah, status, nama_menu, id_pengguna FROM pesanan, menu WHERE pesanan.no_menu=menu.no_menu AND status='Dalam Proses' ORDER BY no_order ASC");
+        $result = mysqli_query($koneksi, "SELECT no_order, jumlah, status, nama_menu FROM pesanan, menu WHERE pesanan.no_menu=menu.no_menu AND status='Dalam Proses' ORDER BY no_order ASC");
     }
     ?>
 
@@ -126,7 +126,6 @@ include_once("koneksi.php");
                 <th>Jumlah</th>
                 <th>Status</th>
                 <th>Nama Menu</th>
-                <th>Id Pengguna</th>
                 <th>Aksi</th>
               </tr>
               <?php
@@ -138,7 +137,6 @@ include_once("koneksi.php");
                 <td><?php echo $user_data['jumlah']; ?></td>
                 <td><?php echo $user_data['status']; ?></td>
                 <td><?php echo $user_data['nama_menu']; ?></td>
-                <td><?php echo $user_data['id_pengguna']; ?></td>
                 <td>
                             <center><a class='btn btn-success' href='ubahDataPesanan_Koki.php?no_order=<?= $user_data['no_order']; ?>'>Edit</a>
                         </td>
