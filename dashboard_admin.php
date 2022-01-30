@@ -17,7 +17,7 @@ include_once("koneksi.php");
         $dataMenu = mysqli_fetch_assoc($result);     
         //
         $result = mysqli_query($koneksi, "SELECT COUNT(*) as `total` FROM `menu_kategori`");
-        $dataMenu = mysqli_fetch_assoc($result);
+        $dataKategori = mysqli_fetch_assoc($result);
     ?>
 
 <!DOCTYPE html>
@@ -29,9 +29,12 @@ include_once("koneksi.php");
 
     <!-- Bootstrap CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
 
     <!-- custom css -->
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="koki.css" />
 
     <title>Admin | Waras</title>
   </head>
@@ -48,12 +51,21 @@ include_once("koneksi.php");
           />
           ꦮꦫꦱ
         </a>
-        <div style="color: white;"><?php echo $_SESSION['nama_pengguna'] ?></div>
+        <div class="dropdown mr-5">
+                <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                <?php echo $_SESSION['nama_pengguna'] ?>
+                </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="logout.php">Logout</a>
+            </div>
+            </div>
       </div>
+      
     </nav>
-    <div class="container-md mt-5">
-      <div class="card bg-dark text-white">
-        <img src="./img/img-admin.png" class="card-img" alt="..." />
+    <div class="container-md mt-5" style="border-radius: 36px;">
+      <div class="card  text-white" style="border-radius: 36px;">
+        <img src="./img/img-admin.png" class="card-img" alt="..." style="border-radius: 36px;"/>
         <div class="card-img-overlay mt-5">
           <h5 class="card-title text-center">Selamat Datang Di</h5>
           <h1 class="card-text text-center">
@@ -62,37 +74,43 @@ include_once("koneksi.php");
         </div>
       </div>
       <div class="mt-4 d-flex justify-content-around mb-3">
-        <div class="card border-2 border-dark" style="width: 15rem">
+      <div class="card border-3 " style="width: 15rem; border-radius: 34px;">
           <div class="card-body text-center">
             <h5 class="card-title">Total Pegawai</h5>
             <h1><?php echo $dataPengguna['total']; ?></h1>
           </div>
         </div>
-        <div class="card border-2 border-dark" style="width: 15rem">
+          <div class="card border-3 " style="width: 15rem; border-radius: 34px;">
           <div class="card-body text-center">
-            <h5 class="card-title">Total Pesanan</h5>
+            <h5 class="card-title">Total Menu</h5>
             <h1><?php echo $dataMenu['total']; ?></h1>
           </div>
         </div>
-        <div class="card border-2 border-dark" style="width: 15rem">
+        <div class="card border-3 " style="width: 15rem; border-radius: 34px;">
           <div class="card-body text-center">
-            <h5 class="card-title">Total Pemasukan</h5>
-            <h1>1</h1>
+            <h5 class="card-title">Total Menu Kategori</h5>
+            <h1><?php echo $dataKategori['total']; ?></h1>
           </div>
         </div>
       </div>
+      
       <div class="mt-4 d-flex justify-content-around mb-3">
-        <a href="keloladatapengguna.php">
-        <button src style="width: 15rem;">Kelola Data Pengguna</button>
-        </a>
-        <a href="keloladatamenu.php">
-        <button style="width: 15rem">Kelola Data Menu</button>
-        </a>
-        <a href="keloladatakategori.php">
-        <button style="width: 15rem">Kelola Data Kategori Menu</button>
-        </a>
+      <div class="button1">
+            <center><a href="keloladatapengguna.php" class="btn1 btn-lg btn-block" style="text-decoration: none;">Kelola data pengguna</a></center>
+              </div>
+              <div class="button1">
+            <center><a href="keloladatamenu.php" class="btn1 btn-lg btn-block" style="text-decoration: none;">Kelola data menu</a></center>
+              </div>
+              <div class="button1">
+            <center><a href="keloladatakategori.php" class="btn1 btn-lg btn-block" style="text-decoration: none;">Kelola data kategori</a></center>
+              </div>
       </div>
     </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
     <script src="./js/bootstrap.bundle.min.js"></script>
   </body>

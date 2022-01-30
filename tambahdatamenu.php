@@ -46,7 +46,15 @@ include_once("koneksi.php");
           />
           ꦮꦫꦱ
         </a>
-        <div style="color: white;"><?php echo $_SESSION['nama_pengguna'] ?></div>
+        <div class="dropdown mr-5">
+                <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                <?php echo $_SESSION['nama_pengguna'] ?>
+                </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="logout.php">Logout</a>
+            </div>
+            </div>
       </div>
     </nav>
     <div class="container mt-5">
@@ -84,10 +92,27 @@ include_once("koneksi.php");
             <input type="text" class="form-control"  name="harga"/>
             </div>
           </div>
-          <div class="mt-3 row">
+          <!-- <div class="mt-3 row">
           <label for="inputNP" class="col-sm-2 col-form-label">Id Kategori</label>
           <div class="col-sm-10">
             <input type="text" class="form-control"  name="id_kategori"/>
+          </div>
+        </div> -->
+        <div class="mt-3 row">
+          <label for="inputNP" class="col-sm-2 col-form-label">Menu Kategori</label>
+          <div class="col-sm-10">
+          <select name="id_kategori" >
+                <option disabled selected> Pilih </option>
+              <?php 
+                $sql=mysqli_query($koneksi, "SELECT * FROM menu_kategori ");
+
+                while ($data=mysqli_fetch_array($sql)) {
+              ?>
+                <option value="<?=$data['id_kategori']?>"><?=$data['nama_kategori']?></option> 
+              <?php
+                }
+              ?>
+                </select>
           </div>
         </div>
        
@@ -101,6 +126,10 @@ include_once("koneksi.php");
         </center>
       </form>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
     <script src="./js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

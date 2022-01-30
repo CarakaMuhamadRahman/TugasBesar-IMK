@@ -37,7 +37,7 @@ include_once("koneksi.php");
   <body>
     <nav class="navbar navbar-dark nav-admin">
       <div class="container-fluid" height="40">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="dashboard_admin.php">
           <img
             src="./img/logo_waras.png"
             alt=""
@@ -47,7 +47,15 @@ include_once("koneksi.php");
           />
           ꦮꦫꦱ
         </a>
-        <div style="color: white;"><?php echo $_SESSION['nama_pengguna'] ?></div>
+        <div class="dropdown mr-5">
+                <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                <?php echo $_SESSION['nama_pengguna'] ?>
+                </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="logout.php">Logout</a>
+            </div>
+            </div>
       </div>
     </nav>
     <div class="container">
@@ -68,20 +76,16 @@ include_once("koneksi.php");
                   </button>
                 </a>
                 <div class="input-group-sm position-absolute top-0 end-0">
-                  <button
-                    class="btn btn-success"
-                    type="button"
-                    id="button-addon1"
-                  >
-                    Cari
-                  </button>
-
-                  <input
-                    type="text"
-                    name="cari"
-                    id="cari"
-                    placeholder="masukan"
-                  />
+                <form class="form-inline method='GET'">
+                    <div class="row">
+                        <div class="col-8">   
+                            <input class="form-control" name="cari"  type="search" placeholder="Cari Nama Pengawai" aria-label="Search">
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-success type="submit" action="">Cari</button>
+                        </div>
+                    </div>
+                </form>
                 </div>
               </div>
 
@@ -115,6 +119,11 @@ include_once("koneksi.php");
         </tr>
       </table>
     </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
     <script src="./js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
