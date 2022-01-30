@@ -73,7 +73,7 @@ include_once("koneksi.php");
              </div>
              <div class="" style="position: relative">
                 <div class="mb-5" style="position: absolute; bottom: 0; left: 52%;">
-                  <a href = "pesan_pelayan.php" class="btn btn-psnplyn" style="width: 15rem">PESANAN</a>
+                  <a href = "#pesan_pelayan" class="btn btn-psnplyn" style="width: 15rem">PESANAN</a>
                 </div>
             </div>
             <div class="judul-1">Selamat Datang Di</div>
@@ -85,7 +85,7 @@ include_once("koneksi.php");
           
       
       <!-- tabel pemesanan -->
-      <div class="container">
+      <div class="container" id="pesan_pelayan">
       <h1 class="mt-5" id="menu">Pesanan</h1>
 
       <table class="table table-bordered">

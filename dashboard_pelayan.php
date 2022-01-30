@@ -141,7 +141,7 @@ include_once("koneksi.php");
             <img src="./img/pelayan_Image.png" class="img-fluid dashboard-pelayan" alt="..." width="100%">
               <div class="" style="position: relative">
                <div class="mb-5" style="position: absolute; bottom: 0; left: 35%;">
-                  <a href = "dashboard_Pelayan.php" class="btn btn-dshplyn" style="width: 15rem">DASHBOARD</a>
+                  <a href = "#menu" class="btn btn-dshplyn" style="width: 15rem">DASHBOARD</a>
                 </div>
              </div>
              <div class="" style="position: relative">
@@ -159,7 +159,7 @@ include_once("koneksi.php");
           <!-- Menu -->
 
           <!-- Row Pertama -->
-          <div class="container">
+          <div class="container" id="menu">
             <h1>MENU</h1><br><br>
           <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">

@@ -51,7 +51,7 @@ include_once("koneksi.php");
               <li class="nav-item">
               <!-- Drop Down -->
               <div class="dropdown mr-10">
-                <a class="btn  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="btn  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
                       <font color = "white"> <?php echo $_SESSION['nama_pengguna'] ?> </font>
                </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
