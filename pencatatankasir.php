@@ -38,38 +38,48 @@ include_once("koneksi.php");
         $cari = $_GET['cari'];
         $result = mysqli_query($koneksi, "SELECT pembayaran.* FROM pembayaran,pesanan where no_nota like'%" . $cari . "%'");
     } else {
-        $result = mysqli_query($koneksi, "SELECT pembayaran.*,pesanan.status,pesanan.no_menu,view_total.total_harga,menu.nama_menu FROM pembayaran,pesanan,view_total,menu where pembayaran.id_order=pesanan.id_order and pesanan.no_menu=menu.no_menu and pembayaran.no_nota=view_total.no_nota ORDER BY no_nota ASC");
+        $result = mysqli_query($koneksi, "SELECT pembayaran.*,pesanan.jumlah,pesanan.status,pesanan.no_menu,view_total.total_harga,menu.nama_menu FROM pembayaran,pesanan,view_total,menu where pembayaran.id_order=pesanan.id_order and pesanan.no_menu=menu.no_menu and pembayaran.no_nota=view_total.no_nota ORDER BY no_nota ASC");
       }
     ?>
   </head>
   <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="padding-top: 0;">
-        <div class="container-fluid custom-navbar1">
-          <a class="navbar-brand judul-icon" href="#">
-            <img src="img/logoo 1.png" alt="" width="55" height="55">
-            <font color = "white">ꦮꦫꦱ</font>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-              <!-- Drop Down -->
-              <div class="dropdown mr-10">
-                <a class="btn  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
-                      <font color = "white"> <?php echo $_SESSION['nama_pengguna'] ?> </font>
-               </a>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="padding-top: 0">
+      <div class="container-fluid custom-navbar1">
+        <a class="navbar-brand judul-icon" href="dashboard_kasir.php">
+          <img src="img/logoo 1.png" alt="" width="55" height="55" />
+          <font color="white">ꦮꦫꦱ</font>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <div style="color: black; font-size: 20px">
+              <div class="dropdown mr-5">
+                <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                <?php echo $_SESSION['nama_pengguna'] ?>
+                </a>
+
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="logout.php">Logout</a></li>
+                  <a class="dropdown-item" href="logout.php">Logout</a>
+            </div>
+            </div>
+      </div>
               </div>
-              </div>
-              <!-- Drop Down -->
-              </li>
-            </ul>
-          </div>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
     <!-- navbar -->
 
@@ -82,7 +92,7 @@ include_once("koneksi.php");
           alt="..."
           width="100%"
         />
-        <div class="" style="posisition: relative">
+        <div >
           <div class="mb-5" style="position: absolute; bottom: 0; left: 24%">
             <a href="dashboard_kasir.php" class="btn btn-dsh" style="width: 15rem"
               >Dashboard</a
@@ -143,12 +153,12 @@ include_once("koneksi.php");
                 <br />
 
                 <tr style="text-align: center">
-                  <th>no_nota</th>
+                  <th>No Nota</th>
+                  <th>Nama Menu</th>
+                  <th>Memesan</th>
+                  <th>Status</th>
                   <th>Tanggal</th>
-                  <th>total_harga</th>
-                  <th>nama</th>
-                  <th>status</th>
-                  <th>no_menu</th>
+                  <th>Total Harga</th>
                 </tr>
                 <?php
                     $no = 1;
@@ -157,29 +167,29 @@ include_once("koneksi.php");
                     
                 <tr style="text-align: center">
                   <td><?php echo $user_data['no_nota']; ?></td>
+                  <td><?php echo $user_data['nama_menu']; ?></td>
+                  <td><?php echo $user_data['jumlah']; ?></td>
+                  <td><?php echo $user_data['status']; ?></td>
                   <td><?php echo $user_data['tanggal']; ?></td>
                   <td><?php echo $user_data['total_harga']; ?></td>
-                  <td><?php echo $user_data['nama_menu']; ?></td>
-                  <td><?php echo $user_data['status']; ?></td>
-                  <td><?php echo $user_data['no_menu']; ?></td>
                 </tr>
                 <?php
                     }
                     ?>
-                    <td colspan="2" style="background-color: burlywood; text-align: center;">Jumlah Pemasukan</td>
-                    <td style="text-align: center;"><?php echo $data_total['jumlah']; ?> / <?php echo $data_pembeli['pembeli']; ?> pembeli</td>
+                    <td colspan="5" style="background-color: burlywood; text-align: center;">Jumlah Pemasukan</td>
+                    <td style="text-align: center;background-color: coral;"><?php echo $data_total['jumlah']; ?> / <?php echo $data_pembeli['pembeli']; ?> Pemesan</td>
               </table>
             </td>
           </tr>
         </table>
       </div>
-      <br>
       <!-- tabel pemesanan -->
-      <footer class="text-center text-dark mt-3 bt-2 pb-2"  style="background-color: white">
-          Copyright © 2022 Catalyze Team    
-        </footer> 
     </div>
     <!-- jumbotron -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
     <script src="./js/bootstrap.bundle.min.js"></script>
   </body>

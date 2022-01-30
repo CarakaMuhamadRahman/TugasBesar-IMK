@@ -35,17 +35,18 @@ include_once("koneksi.php");
     <body>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: rgb(69, 98, 76);">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">
+              <a class="navbar-brand" href="dashboard_kasir.php">
                 <img src="img/logoo 1.png" alt="" width="55" height="55">
                 ꦮꦫꦱ
               </a>
-              <div class="dropdown mr-5">
+              <div class="dropdown mr-2">
                 <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
                 <?php echo $_SESSION['nama_pengguna'] ?>
                 </a>
 
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <a class="dropdown-item" href="logout.php">Logout</a>
+            </div>
             </div>
             </div>
           </nav>

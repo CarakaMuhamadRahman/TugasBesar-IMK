@@ -31,38 +31,39 @@ include_once("koneksi.php");
         $cari = $_GET['cari'];
         $result = mysqli_query($koneksi, "SELECT pembayaran.* FROM pembayaran,pesanan where no_nota like'%" . $cari . "%'");
     } else {
-        $result = mysqli_query($koneksi, "SELECT pembayaran.*,pesanan.status,pesanan.no_menu,view_total.total_harga,menu.nama_menu FROM pembayaran,pesanan,view_total,menu where pembayaran.id_order=pesanan.id_order and pesanan.no_menu=menu.no_menu and pembayaran.no_nota=view_total.no_nota ORDER BY no_nota ASC");
+        $result = mysqli_query($koneksi, "SELECT pembayaran.*,pesanan.status,pesanan.jumlah,pesanan.no_menu,view_total.total_harga,menu.nama_menu FROM pembayaran,pesanan,view_total,menu where pembayaran.id_order=pesanan.id_order and pesanan.no_menu=menu.no_menu and pembayaran.no_nota=view_total.no_nota ORDER BY no_nota ASC");
       }
     ?>
   </head>
   <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="padding-top: 0;">
-        <div class="container-fluid custom-navbar1">
-          <a class="navbar-brand judul-icon" href="#">
-            <img src="img/logoo 1.png" alt="" width="55" height="55">
-            <font color = "white">ꦮꦫꦱ</font>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-              <!-- Drop Down -->
-              <div class="dropdown mr-10">
-                <a class="btn  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
-                      <font color = "white"> <?php echo $_SESSION['nama_pengguna'] ?> </font>
-               </a>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="padding-top: 0">
+      <div class="container-fluid custom-navbar1">
+        <a class="navbar-brand judul-icon" href="dashboard_kasir.php">
+          <img src="img/logoo 1.png" alt="" width="55" height="55" />
+          <font color="white">ꦮꦫꦱ</font>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="dropdown mr-5">
+                <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                <?php echo $_SESSION['nama_pengguna'] ?>
+                </a>
+
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="logout.php">Logout</a></li>
-              </div>
-              </div>
-              <!-- Drop Down -->
-              </li>
-            </ul>
-          </div>
-        </div>
+                  <a class="dropdown-item" href="logout.php">Logout</a>
+            </div>
+            </div>
+      </div>
     </nav>
     <!-- navbar -->
 
@@ -75,7 +76,7 @@ include_once("koneksi.php");
           alt="..."
           width="100%"
         />
-        <div class="" style="posisition: relative">
+        <div>
           <div class="mb-5" style="position: absolute; bottom: 0; left: 24%">
             <a href="dashboard_kasir.php" class="btn btn-dsh" style="width: 15rem"
               >Dashboard</a
@@ -105,48 +106,36 @@ include_once("koneksi.php");
             <td>
               <table class="table table-bordered">
                 <br />
-
-                <!-- <button
-                    class="btn btn-success"
-                    type="button"
-                    id="button-addon1"
-                  >
-                    cari
-                  </button>-->
                 <div class="position-relative">
-                  <div class="input-group-sm position-absolute top-0 end-0">
-                    <form class="form-inline method='GET'">
-                      <div class="row">
+                <a href="tambahdatapembayaran.php">
+
+                  <button class="btn btn-success position-absolute top-0 start-0">
+                    Tambah Data
+                  </button>
+                </a>
+                <div class="input-group-sm position-absolute top-0 end-0">
+                <form class="form-inline method='GET'">
+                    <div class="row">
+
                         <div class="col">
-                          <a
-                            href="#"
-                            class="btn btn-success"
-                          >
-                            Print</a
-                          >
-                          <a
-                            href="tambahdatapembayaran.php"
-                            class="btn btn-success"
-                          >
-                            Tambah data</a
-                          >
+                            <button class="btn btn-success type="submit" action="">Print</button>
                         </div>
-                      </div>
-                    </form>
-                  </div>
+                    </div>
+                </form>
                 </div>
+              </div>
 
                 <br />
                 <br />
                 <br />
 
                 <tr style="text-align: center">
-                  <th>no_nota</th>
+                  <th>No Nota</th>
                   <th>Tanggal</th>
-                  <th>total_harga</th>
-                  <th>nama</th>
-                  <th>status</th>
-                  <th>no_menu</th>
+                  <th>Jumlah</th>
+                  <th>Total Harga</th>
+                  <th>Nama Menu</th>
+                  <th>Status</th>
                   <th>Aksi</th>
                 </tr>
                 <?php
@@ -156,11 +145,11 @@ include_once("koneksi.php");
                     
                 <tr style="text-align: center">
                   <td><?php echo $user_data['no_nota']; ?></td>
-                  <td><?php echo $user_data['tanggal']; ?></td>
-                  <td><?php echo $user_data['total_harga']; ?></td>
                   <td><?php echo $user_data['nama_menu']; ?></td>
+                  <td><?php echo $user_data['jumlah']; ?></td>
+                  <td><?php echo $user_data['total_harga']; ?></td>
                   <td><?php echo $user_data['status']; ?></td>
-                  <td><?php echo $user_data['no_menu']; ?></td>
+                  <td><?php echo $user_data['tanggal']; ?></td>
                   <td><a class='btn btn-danger' href='hapusdatapembayaran.php?no_nota=<?= $user_data['no_nota']; ?>' onclick="return confirm('anda yakin ingin menghapus data?')">Delete</a></td>
                 </tr>
                 <?php
@@ -171,13 +160,12 @@ include_once("koneksi.php");
           </tr>
         </table>
       </div>
-      <br><br>
       <!-- tabel pemesanan -->
-      <footer class="text-center text-dark mt-3 bt-2 pb-2"  style="background-color: white">
-          Copyright © 2022 Catalyze Team    
-        </footer> 
     </div>
     <!-- jumbotron -->
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
     <script src="./js/bootstrap.bundle.min.js"></script>
   </body>
