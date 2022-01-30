@@ -39,7 +39,14 @@ include_once("koneksi.php");
                 <img src="img/logoo 1.png" alt="" width="55" height="55">
                 ꦮꦫꦱ
               </a>
-              <div style="color: white; font-size: 20px;"><?php echo $_SESSION['nama_pengguna'] ?></div>
+              <div class="dropdown mr-5">
+                <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                <?php echo $_SESSION['nama_pengguna'] ?>
+                </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="logout.php">Logout</a>
+            </div>
             </div>
           </nav>
           <br><br><br><br><br>

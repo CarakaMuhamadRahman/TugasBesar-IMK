@@ -39,7 +39,7 @@ include_once("koneksi.php");
   <body>
     
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="padding-top: 0;">
         <div class="container-fluid custom-navbar1">
           <a class="navbar-brand judul-icon" href="#">
             <img src="img/logoo 1.png" alt="" width="55" height="55">
@@ -77,7 +77,7 @@ include_once("koneksi.php");
                 <div class="mb-5" style="position: absolute; bottom: 0; left: 25%;">
                   <a href = "dashboard_koki.php" class="btn btn-dsh" style="width: 15rem">DASHBOARD</a>
                   <a href = "kelolaStokMenu_Koki.php" class="btn btn-stk" style="width: 15rem">STOCK MENU</a>
-                  <a href = "kelolaPesanan_Koki.php" class="btn btn-psn" style="width: 15rem">PESANAN</a>
+                  <a href = "#pesanan" class="btn btn-psn" style="width: 15rem">PESANAN</a>
                 </div>
              </div>
             <div class="judul-1">Selamat Datang Di</div>
@@ -92,7 +92,7 @@ include_once("koneksi.php");
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       <!-- tabel pemesanan -->
       <div class="container">
-      <h1 class="mt-5">Kelola Pesanan</h1>
+      <h1 class="mt-5" id="pesanan">Kelola Pesanan</h1>
 
       <table class="table table-bordered">
         <tr>
@@ -149,6 +149,12 @@ include_once("koneksi.php");
         </tr>
 
       </table>
+      <br><br>
+      <!-- Footer -->
+      <footer class="text-center text-dark mt-3 bt-2 pb-2"  style="background-color: white">
+          Copyright © 2022 Catalyze Team    
+        </footer>
+      <!-- Footer  -->
     </div>
       <!-- tabel pemesanan -->
 

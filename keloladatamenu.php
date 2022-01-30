@@ -31,7 +31,7 @@ include_once("koneksi.php");
         $cari = $_GET['cari'];
         $result = mysqli_query($koneksi, "SELECT * FROM menu where nama_menu like'%" . $cari . "%'");
     } else {
-        $result = mysqli_query($koneksi, "SELECT * FROM menu ORDER BY nama_menu ASC");
+        $result = mysqli_query($koneksi, "SELECT * FROM menu ORDER BY no_menu ASC");
     }
     ?>
   </head>
@@ -69,21 +69,18 @@ include_once("koneksi.php");
                     Tambah Data
                   </button>
                 </a>
+                <div class="position-relative">
                 <div class="input-group-sm position-absolute top-0 end-0">
-                  <button
-                    class="btn btn-success"
-                    type="button"
-                    id="button-addon1"
-                  >
-                    Cari
-                  </button>
-
-                  <input
-                    type="text"
-                    name="cari"
-                    id="cari"
-                    placeholder="masukan"
-                  />
+                  <form class="form-inline method='GET'">
+                    <div class="row">
+                        <div class="col-8">   
+                            <input class="form-control" name="cari"  type="search" placeholder="Cari Menu" aria-label="Search">
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-success type="submit" action="">Cari</button>
+                        </div>
+                    </div>
+                </form>
                 </div>
               </div>
 

@@ -37,7 +37,7 @@ if($cek > 0){
 		$_SESSION['jabatan'] = "Pelayan";
 		$_SESSION["nama_pengguna"] = $data["nama_pengguna"];
 		// alihkan ke halaman dashboard pengguna
-		header("location:dashboard_pelayan.php");
+		header("location:dashboard_Pelayan.php");
  
 	// cek jika user login sebagai koki
 	}else if($data['jabatan']=="Koki"){

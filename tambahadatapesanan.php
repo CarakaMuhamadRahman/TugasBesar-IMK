@@ -49,7 +49,7 @@ include_once("koneksi.php");
       </div>
     </nav>
     <div class="container mt-5">
-      <h3>Tambah data pengguna</h3>
+      <h3>Tambah data Pesanan</h3>
     </div>
     <?php 
                 if(isset($_POST['tombol']))
@@ -59,7 +59,7 @@ include_once("koneksi.php");
                     $status = $_POST['status'];
                     $no_menu = $_POST['no_menu'];
                     mysqli_query($koneksi,"insert into pesanan (no_order,jumlah,status,no_menu) values ('$no_order','$jumlah','$status','$no_menu')");
-                    header("location:dashboard_pelayan.php");
+                    header("location:pesan_pelayan.php");
                   }                   
                 
             ?>

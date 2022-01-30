@@ -13,7 +13,7 @@ include_once("koneksi.php");
         $result = mysqli_query($koneksi, "SELECT COUNT(*) as `totalMenu` FROM `menu`");
         $dataMenu = mysqli_fetch_assoc($result);
         // get count Pesanan
-        $result = mysqli_query($koneksi, "SELECT COUNT(*) as `totalPesanan` FROM `pesanan`");
+        $result = mysqli_query($koneksi, "SELECT COUNT(*) as `totalPesanan` FROM `pesanan` WHERE status='Dalam Proses'");
         $dataPesanan = mysqli_fetch_assoc($result);     
     ?>
 

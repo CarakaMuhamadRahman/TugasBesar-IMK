@@ -44,34 +44,32 @@ include_once("koneksi.php");
   </head>
   <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="padding-top: 0">
-      <div class="container-fluid custom-navbar1">
-        <a class="navbar-brand judul-icon" href="#">
-          <img src="img/logoo 1.png" alt="" width="55" height="55" />
-          <font color="white">ꦮꦫꦱ</font>
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <div style="color: black; font-size: 20px">
-                <div style="color: white;"><?php echo $_SESSION['nama_pengguna'] ?></div>
-      </div>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="padding-top: 0;">
+        <div class="container-fluid custom-navbar1">
+          <a class="navbar-brand judul-icon" href="#">
+            <img src="img/logoo 1.png" alt="" width="55" height="55">
+            <font color = "white">ꦮꦫꦱ</font>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+              <!-- Drop Down -->
+              <div class="dropdown mr-10">
+                <a class="btn  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      <font color = "white"> <?php echo $_SESSION['nama_pengguna'] ?> </font>
+               </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="logout.php">Logout</a></li>
               </div>
-            </li>
-          </ul>
+              </div>
+              <!-- Drop Down -->
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
     </nav>
     <!-- navbar -->
 
@@ -175,7 +173,11 @@ include_once("koneksi.php");
           </tr>
         </table>
       </div>
+      <br>
       <!-- tabel pemesanan -->
+      <footer class="text-center text-dark mt-3 bt-2 pb-2"  style="background-color: white">
+          Copyright © 2022 Catalyze Team    
+        </footer> 
     </div>
     <!-- jumbotron -->
 

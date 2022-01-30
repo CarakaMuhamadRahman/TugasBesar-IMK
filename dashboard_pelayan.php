@@ -7,6 +7,91 @@ include_once("koneksi.php");
         header('location:login.php?pesan=gagal');
     }
 	?>
+    <?php 
+        // get Stok Menu Ayam Betutu 
+        $result = mysqli_query($koneksi, "SELECT stok as `stokAyamBetutu` FROM `menu` WHERE nama_menu='Ayam Betutu Rebus'");
+        $dataStokAyamBetutu = mysqli_fetch_assoc($result);
+        // get Harga Ayam Betutu
+        $result = mysqli_query($koneksi, "SELECT harga as `hargaAyamBetutu` FROM `menu` WHERE nama_menu='Ayam Betutu Rebus'");
+        $dataHargaAyamBetutu = mysqli_fetch_assoc($result); 
+
+        // get Stok Menu Ayam Goreng Kalasan 
+        $result = mysqli_query($koneksi, "SELECT stok as `stokAyamKalasan` FROM `menu` WHERE nama_menu='Ayam Goreng Kalasan'");
+        $dataStokAyamKalasan = mysqli_fetch_assoc($result);
+        // get Harga Ayam Goreng Kalasan
+        $result = mysqli_query($koneksi, "SELECT harga as `hargaAyamKalasan` FROM `menu` WHERE nama_menu='Ayam Goreng Kalasan'");
+        $dataHargaAyamKalasan = mysqli_fetch_assoc($result);
+
+        // get Stok Menu Ayam Bakar 
+        $result = mysqli_query($koneksi, "SELECT stok as `stokAyamBakar` FROM `menu` WHERE nama_menu='Ayam Bakar'");
+        $dataStokAyamBakar = mysqli_fetch_assoc($result);
+        // get Harga Ayam Bakar
+        $result = mysqli_query($koneksi, "SELECT harga as `hargaAyamBakar` FROM `menu` WHERE nama_menu='Ayam Bakar'");
+        $dataHargaAyamBakar = mysqli_fetch_assoc($result);
+
+        // get Stok Menu Ricebox Ayam Saus Woku 
+        $result = mysqli_query($koneksi, "SELECT stok as `stokRiceboxSausWoku` FROM `menu` WHERE nama_menu='RiceBox Ayam Saus Woku'");
+        $dataStokRiceboxSausWoku = mysqli_fetch_assoc($result);
+        // get Harga Ricebox Ayam Saus Woku
+        $result = mysqli_query($koneksi, "SELECT harga as `hargaRiceboxSausWoku` FROM `menu` WHERE nama_menu='RiceBox Ayam Saus Woku'");
+        $dataHargaRiceboxSausWoku = mysqli_fetch_assoc($result);
+
+        // get Stok Menu Ricebox Ayam Saus Nanas 
+        $result = mysqli_query($koneksi, "SELECT stok as `stokRiceboxSausNanas` FROM `menu` WHERE nama_menu='RiceBox Ayam Saus Nanas'");
+        $dataStokRiceboxSausNanas = mysqli_fetch_assoc($result);
+        // get Harga Ricebox Ayam Saus Nanas
+        $result = mysqli_query($koneksi, "SELECT harga as `hargaRiceboxSausNanas` FROM `menu` WHERE nama_menu='RiceBox Ayam Saus Nanas'");
+        $dataHargaRiceboxSausNanas = mysqli_fetch_assoc($result);
+
+        // get Stok Menu Ricebox Ayam Sambal Matah
+        $result = mysqli_query($koneksi, "SELECT stok as `stokRiceboxSambalMatah` FROM `menu` WHERE nama_menu='RiceBox Ayam Sambal Matah'");
+        $dataStokRiceboxSambalMatah = mysqli_fetch_assoc($result);
+        // get Harga Ricebox Ayam Sambal Matah
+        $result = mysqli_query($koneksi, "SELECT harga as `hargaRiceboxSambalMatah` FROM `menu` WHERE nama_menu='RiceBox Ayam Sambal Matah'");
+        $dataHargaRiceboxSambalMatah = mysqli_fetch_assoc($result);
+
+        // get Stok Menu Ricebox Nasi Goreng Tongkol
+        $result = mysqli_query($koneksi, "SELECT stok as `stokRiceboxTongkol` FROM `menu` WHERE nama_menu='RiceBox Nasi Goreng Tongkol'");
+        $dataStokRiceboxTongkol = mysqli_fetch_assoc($result);
+        // get Harga Ricebox Nasi Goreng Tongkol
+        $result = mysqli_query($koneksi, "SELECT harga as `hargaRiceboxTongkol` FROM `menu` WHERE nama_menu='RiceBox Nasi Goreng Tongkol'");
+        $dataHargaRiceboxTongkol = mysqli_fetch_assoc($result);
+
+        // get Stok Menu Ricebox Tongkol Suwir Temurui
+        $result = mysqli_query($koneksi, "SELECT stok as `stokRiceboxTongkolSuwir` FROM `menu` WHERE nama_menu='RiceBox Tongkol Suwir Temurui'");
+        $dataStokRiceboxTongkolSuwir = mysqli_fetch_assoc($result);
+        // get Harga Ricebox Tongkol Suwir Temurui
+        $result = mysqli_query($koneksi, "SELECT harga as `hargaRiceboxTongkolSuwir` FROM `menu` WHERE nama_menu='RiceBox Tongkol Suwir Temurui'");
+        $dataHargaRiceboxTongkolSuwir = mysqli_fetch_assoc($result);
+
+        // get Stok Menu Minuman Kunyit Citrus
+        $result = mysqli_query($koneksi, "SELECT stok as `stokMinumanSitrus` FROM `menu` WHERE nama_menu='Minuman Kunyit Sitrus'");
+        $dataStokMinumanSitrus = mysqli_fetch_assoc($result);
+        // get Harga Minuman Kunyit Sitrus
+        $result = mysqli_query($koneksi, "SELECT harga as `hargaMinumanSitrus` FROM `menu` WHERE nama_menu='Minuman Kunyit Sitrus'");
+        $dataHargaMinumanSitrus = mysqli_fetch_assoc($result);
+
+        // get Stok Menu Minuman Kurma Rempah
+        $result = mysqli_query($koneksi, "SELECT stok as `stokMinumanKurma` FROM `menu` WHERE nama_menu='Minuman Kurma Rempah'");
+        $dataStokMinumanKurma = mysqli_fetch_assoc($result);
+        // get Harga Minuman Kurma Rempah
+        $result = mysqli_query($koneksi, "SELECT harga as `hargaMinumanKurma` FROM `menu` WHERE nama_menu='Minuman Kurma Rempah'");
+        $dataHargaMinumanKurma = mysqli_fetch_assoc($result);
+
+        // get Stok Menu Minuman Secang Riang
+        $result = mysqli_query($koneksi, "SELECT stok as `stokMinumanSecang` FROM `menu` WHERE nama_menu='Minuman Secang Riang'");
+        $dataStokMinumanSecang = mysqli_fetch_assoc($result);
+        // get Harga Minuman Secang Riang
+        $result = mysqli_query($koneksi, "SELECT harga as `hargaMinumanSecang` FROM `menu` WHERE nama_menu='Minuman Secang Riang'");
+        $dataHargaMinumanSecang = mysqli_fetch_assoc($result);
+
+        // get Stok Menu Minuman Telang Sejuk
+        $result = mysqli_query($koneksi, "SELECT stok as `stokMinumanSejuk` FROM `menu` WHERE nama_menu='Minuman Telang Sejuk'");
+        $dataStokMinumanSejuk = mysqli_fetch_assoc($result);
+        // get Harga Minuman Telang Sejuk
+        $result = mysqli_query($koneksi, "SELECT harga as `hargaMinumanSejuk` FROM `menu` WHERE nama_menu='Minuman Telang Sejuk'");
+        $dataHargaMinumanSejuk = mysqli_fetch_assoc($result);
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,21 +105,9 @@ include_once("koneksi.php");
     <link href="./css/bootstrap.min.css" rel="stylesheet">
 
     <!-- custom css -->
-    <link rel="stylesheet" href="koki.css"> 
+    <link rel="stylesheet" href="pelayan.css"> 
 
     <title>Koki | Waras</title>
-
-    <?php
-    include_once("koneksi.php");
-
-    if (isset($_GET['cari'])) {
-        $cari = $_GET['cari'];
-        $result = mysqli_query($koneksi, "SELECT * FROM pesanan where id_order like'%" . $cari . "%'");
-    } else {
-        $result = mysqli_query($koneksi, "SELECT * FROM pesanan ORDER BY id_order ASC");
-    }
-    ?>
-
 </head>
   <body>
     
@@ -43,16 +116,19 @@ include_once("koneksi.php");
         <div class="container-fluid custom-navbar1">
           <a class="navbar-brand judul-icon" href="#">
             <img src="img/logoo 1.png" alt="" width="55" height="55">
-            <font color = "black">ꦮꦫꦱ</font>
+            <font color = "white">ꦮꦫꦱ</font>
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-              <div style="color: black; font-size: 20px;"><?php echo $_SESSION['nama_pengguna'] ?></div>
-              </li>
+              <!-- Drop Down -->
+              <div class="dropdown mr-10">
+                <a class="btn  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
+                       <?php echo $_SESSION['nama_pengguna'] ?>
+               </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="logout.php">Logout</a></li>
+              </div>
+              </div>
+              <!-- Drop Down -->
             </ul>
           </div>
         </div>
@@ -62,86 +138,167 @@ include_once("koneksi.php");
     <!-- jumbotron -->
       <div id="jumbotron">
           <div class="col-sm-12">
-            <img src="./img/pageStokKoki.png" class="img-fluid dashboard-pelayan" alt="..." width="100%">
-              <div class="" style="posisition: relative">
-                <div class="mb-5" style="position: absolute; bottom: 0; left: 42%;">
-                  <a href = "#menu" class="btn btn-dsh" style="width: 15rem">Lihat Menu</a>
+            <img src="./img/pelayan_Image.png" class="img-fluid dashboard-pelayan" alt="..." width="100%">
+              <div class="" style="position: relative">
+               <div class="mb-5" style="position: absolute; bottom: 0; left: 35%;">
+                  <a href = "dashboard_Pelayan.php" class="btn btn-dshplyn" style="width: 15rem">DASHBOARD</a>
                 </div>
              </div>
+             <div class="" style="position: relative">
+                <div class="mb-5" style="position: absolute; bottom: 0; left: 52%;">
+                  <a href = "pesan_pelayan.php" class="btn btn-psnplyn" style="width: 15rem">PESANAN</a>
+                </div>
+            </div>
             <div class="judul-1">Selamat Datang Di</div>
             <div class="login">
         </div>
             <div class="judul-2">Waras</div>
-            
           </div>
-          
-      
-      <!-- tabel pemesanan -->
-      <div class="container">
-      <h1 class="mt-5" id="menu">Pilihan Menu</h1>
+          <br><br>
 
-      <table class="table table-bordered">
-        <tr>
-          <th colspan="7">Tabel Menu</th>
-        </tr>
-        <tr>
-          <td>
-            <table class="table table-bordered">
-              <br />
-              
-                  <!-- <button
-                    class="btn btn-success"
-                    type="button"
-                    id="button-addon1"
-                  >
-                    cari
-                  </button>-->
-                  <div class="position-relative">
-                <div class="input-group-sm position-absolute top-0 end-0">
-                  <form class="form-inline method='GET'">
-                    <div class="row">
+          <!-- Menu -->
 
-                        <div class="col">
-                          <a href="tambahadatapesanan.php" class="btn btn-success"> Pesan</a>
-                        </div>
-                    </div>
-                </form>
-                </div>
-              </div>
-
-              <br />
-              <br />
-              <br />
-
-              <tr style="text-align:center">
-                <th>id_order</th>
-                <th>jumlah</th>
-                <th>status</th>
-                <th>no_menu menu</th>
-              </tr>
-              <?php
-                    $no = 1;
-                    while ($user_data = mysqli_fetch_array($result)) {
-                    ?>
-              <tr style="text-align:center">
-                <td><?php echo $user_data['id_order']; ?></td>
-                <td><?php echo $user_data['jumlah']; ?></td>
-                <td><?php echo $user_data['status']; ?></td>
-                <td><?php echo $user_data['no_menu']; ?></td>
-                
-              </tr>
-              <?php
-                    }
-                    ?>
-            </table>
-          </td>
-        </tr>
-
-      </table>
-    </div>
-      <!-- tabel pemesanan -->
+          <!-- Row Pertama -->
+          <div class="container">
+            <h1>MENU</h1><br><br>
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+    <div class="card h-100">
+      <img src="img/AyamBetutu_RebusdanGoreng.jpeg" class="card-img-top" alt="..." style="border-radius: 36px">
+      <div class="card-body">
+        <h5 class="card-title">Ayam Betutu Rebus dan Goreng</h5>
+        <h8 class="card-text">Stok  : <?php echo $dataStokAyamBetutu['stokAyamBetutu']; ?></h8><br><br>
+        <h8 class="card-text" style="font-weight: bold">Harga : Rp.<?php echo $dataHargaAyamBetutu['hargaAyamBetutu']; ?></h8>
       </div>
-      <!-- jumbotron -->
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="img/AyamGoreng_Kalasan.jpeg" class="card-img-top" alt="..." style="border-radius: 36px">
+      <div class="card-body">
+        <h5 class="card-title">Ayam Goreng Kalasan</h5>
+        <h8 class="card-text">Stok  : <?php echo $dataStokAyamKalasan['stokAyamKalasan']; ?></h8><br><br>
+        <h8 class="card-text" style="font-weight: bold">Harga : Rp.<?php echo $dataHargaAyamKalasan['hargaAyamKalasan']; ?></h8>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="img/Ayam_Bakar.jpeg" class="card-img-top" alt="..." style="border-radius: 36px">
+      <div class="card-body">
+        <h5 class="card-title">Ayam Bakar</h5>
+        <h8 class="card-text">Stok  : <?php echo $dataStokAyamBakar['stokAyamBakar']; ?></h8><br><br>
+        <h8 class="card-text" style="font-weight: bold">Harga : Rp.<?php echo $dataHargaAyamBakar['hargaAyamBakar']; ?></h8>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row Kedua -->
+  <div class="col">
+    <div class="card h-100">
+      <img src="img/ricebox_ayam_saus_woku.jpeg" class="card-img-top" alt="..." style="border-radius: 36px">
+      <div class="card-body">
+        <h5 class="card-title">Ricebox Ayam Saus Woku</h5>
+        <h8 class="card-text">Stok  : <?php echo $dataStokRiceboxSausWoku['stokRiceboxSausWoku']; ?></h8><br><br>
+        <h8 class="card-text" style="font-weight: bold">Harga : Rp.<?php echo $dataHargaRiceboxSausWoku['hargaRiceboxSausWoku']; ?></h8>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="img/ricebox_ayam_saus_nanas.jpeg" class="card-img-top" alt="..." style="border-radius: 36px">
+      <div class="card-body">
+        <h5 class="card-title">Ricebox Ayam Saus Nanas</h5>
+        <h8 class="card-text">Stok  : <?php echo $dataStokRiceboxSausNanas['stokRiceboxSausNanas']; ?></h8><br><br>
+        <h8 class="card-text" style="font-weight: bold">Harga : Rp.<?php echo $dataHargaRiceboxSausNanas['hargaRiceboxSausNanas']; ?></h8>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="img/ricebox_ayam_sambal_matah.jpeg" class="card-img-top" alt="..." style="border-radius: 36px">
+      <div class="card-body">
+        <h5 class="card-title">Ricebox Ayam Sambal Matah</h5>
+        <h8 class="card-text">Stok  : <?php echo $dataStokRiceboxSambalMatah['stokRiceboxSambalMatah']; ?></h8><br><br>
+        <h8 class="card-text" style="font-weight: bold">Harga : Rp.<?php echo $dataHargaRiceboxSambalMatah['hargaRiceboxSambalMatah']; ?></h8>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row Ketiga -->
+  <div class="col">
+    <div class="card h-100">
+      <img src="img/ricebox_nasi_goreng_tongkoll.jpeg" class="card-img-top" alt="..." style="border-radius: 36px">
+      <div class="card-body">
+        <h5 class="card-title">Ricebox Nasi Goreng Tongkol</h5>
+        <h8 class="card-text">Stok  : <?php echo $dataStokRiceboxTongkol['stokRiceboxTongkol']; ?></h8><br><br>
+        <h8 class="card-text" style="font-weight: bold">Harga : Rp.<?php echo $dataHargaRiceboxTongkol['hargaRiceboxTongkol']; ?></h8>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="img/ricebox_tongkol_suwir_temurui.jpeg" class="card-img-top" alt="..." style="border-radius: 36px">
+      <div class="card-body">
+        <h5 class="card-title">Ricebox Tongkol Suwir Temurui</h5>
+        <h8 class="card-text">Stok  : <?php echo $dataStokRiceboxTongkolSuwir['stokRiceboxTongkolSuwir']; ?></h8><br><br>
+        <h8 class="card-text" style="font-weight: bold">Harga : Rp.<?php echo $dataHargaRiceboxTongkolSuwir['hargaRiceboxTongkolSuwir']; ?></h8>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="img/minuman_kunyit_citrus.jpeg" class="card-img-top" alt="..." style="border-radius: 36px">
+      <div class="card-body">
+        <h5 class="card-title">Minuman Kunyit Citrus</h5>
+        <h8 class="card-text">Stok  : <?php echo $dataStokMinumanSitrus['stokMinumanSitrus']; ?></h8><br><br>
+        <h8 class="card-text" style="font-weight: bold">Harga : Rp.<?php echo $dataHargaMinumanSitrus['hargaMinumanSitrus']; ?></h8>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row Keempat -->
+  <div class="col">
+    <div class="card h-100">
+      <img src="img/kurma_rempah.jpeg" class="card-img-top" alt="..." style="border-radius: 36px">
+      <div class="card-body">
+        <h5 class="card-title">Minuman Kurma Rempah</h5>
+        <h8 class="card-text">Stok  : <?php echo $dataStokMinumanKurma['stokMinumanKurma']; ?></h8><br><br>
+        <h8 class="card-text" style="font-weight: bold">Harga : Rp.<?php echo $dataHargaMinumanKurma['hargaMinumanKurma']; ?></h8>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="img/secang_riang.jpeg" class="card-img-top" alt="..." style="border-radius: 36px">
+      <div class="card-body">
+        <h5 class="card-title">Minuman Secang Riang</h5>
+        <h8 class="card-text">Stok  : <?php echo $dataStokMinumanSecang['stokMinumanSecang']; ?></h8><br><br>
+        <h8 class="card-text" style="font-weight: bold">Harga : Rp.<?php echo $dataHargaMinumanSecang['hargaMinumanSecang']; ?></h8>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="img/Telang_sejuk.jpeg" class="card-img-top" alt="..." style="border-radius: 36px">
+      <div class="card-body">
+        <h5 class="card-title">Minuman Telang Sejuk</h5>
+        <h8 class="card-text">Stok  : <?php echo $dataStokMinumanSejuk['stokMinumanSejuk']; ?></h8><br><br>
+        <h8 class="card-text" style="font-weight: bold">Harga : Rp.<?php echo $dataHargaMinumanSejuk['hargaMinumanSejuk']; ?></h8>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<!-- Menu -->
+
+      <!-- Footer -->
+        <footer class="text-center text-dark mt-3 bt-2 pb-2"  style="background-color: white">
+          Copyright © 2022 Catalyze Team    
+        </footer> 
+      <!-- Footer -->
+      
+     
 
 
       <script src="./js/bootstrap.bundle.min.js"></script>
