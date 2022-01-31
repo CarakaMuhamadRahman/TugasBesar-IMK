@@ -116,11 +116,12 @@ include_once("koneksi.php");
                 <div class="input-group-sm position-absolute top-0 end-0">
                 <form class="form-inline method='GET'">
                     <div class="row">
-
-                        <div class="col">
-                            <button class="btn btn-success type="submit" action="">Print</button>
+                    <div class="col-8">   
+                            <input class="form-control" name="cari"  type="search" placeholder="Cari Menu" aria-label="Search">
                         </div>
-                    </div>
+                        <div class="col">
+                            <button class="btn btn-success type="submit" action="">Cari</button>
+                        </div>
                 </form>
                 </div>
               </div>
@@ -131,11 +132,11 @@ include_once("koneksi.php");
 
                 <tr style="text-align: center">
                   <th>No Nota</th>
-                  <th>Tanggal</th>
+                  <th>Nama Menu</th>
                   <th>Jumlah</th>
                   <th>Total Harga</th>
-                  <th>Nama Menu</th>
                   <th>Status</th>
+                  <th>Tanggal</th>
                   <th>Aksi</th>
                 </tr>
                 <?php

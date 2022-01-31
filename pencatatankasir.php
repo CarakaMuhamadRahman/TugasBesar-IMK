@@ -36,9 +36,9 @@ include_once("koneksi.php");
 
     if (isset($_GET['cari'])) {
         $cari = $_GET['cari'];
-        $result = mysqli_query($koneksi, "SELECT pembayaran.* FROM pembayaran,pesanan where no_nota like'%" . $cari . "%'");
+        $result = mysqli_query($koneksi, "SELECT pembayaran.* FROM pembayaran where pembayaran.no_nota like'%" . $cari . "%'");
     } else {
-        $result = mysqli_query($koneksi, "SELECT pembayaran.*,pesanan.jumlah,pesanan.status,pesanan.no_menu,view_total.total_harga,menu.nama_menu FROM pembayaran,pesanan,view_total,menu where pembayaran.id_order=pesanan.id_order and pesanan.no_menu=menu.no_menu and pembayaran.no_nota=view_total.no_nota ORDER BY no_nota ASC");
+        $result = mysqli_query($koneksi, "SELECT pembayaran.*,pesanan.jumlah,pesanan.status,pesanan.no_menu,view_total.total_harga,menu.nama_menu FROM pembayaran,pesanan,view_total,menu where pembayaran.id_order=pesanan.id_order and pesanan.no_menu=menu.no_menu and pembayaran.no_nota=view_total.no_nota ORDER BY pembayaran.no_nota ASC");
       }
     ?>
   </head>
@@ -134,13 +134,12 @@ include_once("koneksi.php");
                   <div class="input-group-sm position-absolute top-0 end-0">
                     <form class="form-inline method='GET'">
                       <div class="row">
+                        <div class="col-8">   
+                            <input class="form-control" name="cari"  type="search" placeholder="Cari Menu" aria-label="Search">
+                        </div>
                         <div class="col">
-                          <a
-                            href="#"
-                            class="btn btn-success"
-                          >
-                            Print</a
-                          >
+                            <button class="btn btn-success type="submit" action="">Cari</button>
+                        </div>
 
                         </div>
                       </div>
