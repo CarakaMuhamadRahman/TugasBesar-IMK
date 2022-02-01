@@ -55,11 +55,12 @@ include_once("koneksi.php");
                 if(isset($_POST['tombol']))
                 {
                     $no_nota = $_POST['no_nota'];
-                    $tanggal = $_POST['tanggal'];
-                    $tanggal = date('d F Y', strtotime($tanggal));
+                    $tanggal = $tanggal = date("Y-m-d H:i:s");
+                    $id_order = $_POST['id_order'];
+                    
                     
                     $id_order = $_POST['id_order'];
-                    mysqli_query($koneksi,"insert into pembayaran (no_nota,tanggal,id_order) values ('$no_nota','$tanggal','$id_order')");
+                    mysqli_query($koneksi,"insert into pembayaran values ('','$tanggal','$id_order')");
                     header("location:pembayarankasir.php");
                   }                   
                 
@@ -69,13 +70,13 @@ include_once("koneksi.php");
         <div class="mt-3 row">
           <label for="inputNP" class="col-sm-2 col-form-label">no Nota</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control"  name="no_nota" />
+            <input type="text" class="form-control"  name="no_nota" placeholder="Otomatis Terisi" disabled/>
           </div>
         </div>
         <div class="mt-3 row">
           <label for="inputNP" class="col-sm-2 col-form-label">tanggal</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control"  name="tanggal" />
+            <input type="text" class="form-control"  name="tanggal" placeholder="Otomatis Terisi" disabled/>
           </div>
         </div>
         <div class="mt-3 row">

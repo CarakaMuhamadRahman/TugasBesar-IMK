@@ -29,9 +29,9 @@ include_once("koneksi.php");
 
     if (isset($_GET['cari'])) {
         $cari = $_GET['cari'];
-        $result = mysqli_query($koneksi, "SELECT pembayaran.* FROM pembayaran,pesanan where no_nota like'%" . $cari . "%'");
+        $result = mysqli_query($koneksi, "SELECT pembayaran.*,pesanan.status,pesanan.jumlah,pesanan.no_menu,view_total.total_harga,menu.nama_menu FROM pembayaran,pesanan,view_total,menu where pembayaran.id_order=pesanan.id_order and pesanan.no_menu=menu.no_menu and pembayaran.no_nota=view_total.no_nota and pembayaran.no_nota like'%" . $cari . "%'");
     } else {
-        $result = mysqli_query($koneksi, "SELECT pembayaran.*,pesanan.status,pesanan.jumlah,pesanan.no_menu,view_total.total_harga,menu.nama_menu FROM pembayaran,pesanan,view_total,menu where pembayaran.id_order=pesanan.id_order and pesanan.no_menu=menu.no_menu and pembayaran.no_nota=view_total.no_nota ORDER BY no_nota ASC");
+        $result = mysqli_query($koneksi, "SELECT pembayaran.*,pesanan.status,pesanan.jumlah,pesanan.no_menu,view_total.total_harga,menu.nama_menu FROM pembayaran,pesanan,view_total,menu where pembayaran.id_order=pesanan.id_order and pesanan.no_menu=menu.no_menu and pembayaran.no_nota=view_total.no_nota ORDER BY pembayaran.no_nota ASC");
       }
     ?>
   </head>
@@ -135,7 +135,7 @@ include_once("koneksi.php");
                   <th>Nama Menu</th>
                   <th>Jumlah</th>
                   <th>Total Harga</th>
-                  <th>Status</th>
+                  <th>Status Pesanan</th>
                   <th>Tanggal</th>
                   <th>Aksi</th>
                 </tr>

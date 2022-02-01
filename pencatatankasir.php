@@ -12,7 +12,7 @@ include_once("koneksi.php");
         $result = mysqli_query($koneksi, "SELECT SUM(total_harga) AS jumlah FROM view_total;");
         $data_total = mysqli_fetch_assoc($result);        
         
-        $result = mysqli_query($koneksi, "SELECT COUNT(*) as `pembeli` FROM `pesanan` where status='Selesai' ");
+        $result = mysqli_query($koneksi, "SELECT COUNT(*) as `pembeli` FROM `total_pembeli`; ");
         $data_pembeli = mysqli_fetch_assoc($result);
     ?>
 <!DOCTYPE html>
@@ -36,7 +36,7 @@ include_once("koneksi.php");
 
     if (isset($_GET['cari'])) {
         $cari = $_GET['cari'];
-        $result = mysqli_query($koneksi, "SELECT pembayaran.* FROM pembayaran where pembayaran.no_nota like'%" . $cari . "%'");
+        $result = mysqli_query($koneksi, "SELECT pembayaran.*,pesanan.jumlah,pesanan.status,pesanan.no_menu,view_total.total_harga,menu.nama_menu FROM pembayaran,pesanan,view_total,menu where pembayaran.id_order=pesanan.id_order and pesanan.no_menu=menu.no_menu and pembayaran.no_nota=view_total.no_nota and view_total.no_nota like'%" . $cari . "%'");
     } else {
         $result = mysqli_query($koneksi, "SELECT pembayaran.*,pesanan.jumlah,pesanan.status,pesanan.no_menu,view_total.total_harga,menu.nama_menu FROM pembayaran,pesanan,view_total,menu where pembayaran.id_order=pesanan.id_order and pesanan.no_menu=menu.no_menu and pembayaran.no_nota=view_total.no_nota ORDER BY pembayaran.no_nota ASC");
       }
